@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ihkqvlu847hs"]
+
+[ext_resource type="PackedScene" uid="uid://cliw0insbnb6o" path="res://fbx/FarmAnimals_v1.1/SheepWhite.fbx" id="1_t8l8v"]
+
+[node name="SheepWhite" instance=ExtResource("1_t8l8v")]

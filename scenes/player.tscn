@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://3hlh5vuckek0"]
+
+[ext_resource type="Script" uid="uid://ck08yw3s1vuw1" path="res://scripts/Player.cs" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://cwhamxfoke0jr" path="res://fbx/FarmAnimals_v1.1/Pig.fbx" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://1ibkkb0oe3dn" path="res://scenes/actors/wings.tscn" id="3_qhqgy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4flbx"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.163728, 0)
+shape = SubResource("BoxShape3D_4flbx")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.5)
+visible = false
+
+[node name="Pig" parent="." instance=ExtResource("2_g2els")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0.125)
+
+[node name="Angel Wings 01 - Animation - slow flapping wings" parent="." instance=ExtResource("3_qhqgy")]
+transform = Transform3D(1.2, 0, 0, 0, 0.526986, 1.07809, 0, -1.07809, 0.526986, 0, 0.68798, 0)

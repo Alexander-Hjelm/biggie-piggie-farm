@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb4m240momnfj"]
+
+[ext_resource type="PackedScene" uid="uid://hfq1fv4we7qm" path="res://fbx/FarmAnimals_v1.1/DuckWhite.fbx" id="1_ql0qm"]
+
+[node name="DuckWhite" instance=ExtResource("1_ql0qm")]

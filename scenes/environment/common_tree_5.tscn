@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3u7xpdfd5l3a"]
+
+[ext_resource type="PackedScene" uid="uid://c0kulg0uvmy8m" path="res://fbx/Ultimate Nature Pack by Quaternius/CommonTree_5.fbx" id="1_h24o3"]
+
+[node name="CommonTree_5" instance=ExtResource("1_h24o3")]

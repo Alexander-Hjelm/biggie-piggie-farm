@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmbd6dp2gdadj"]
+
+[ext_resource type="PackedScene" uid="uid://dxrgfuefo7tip" path="res://fbx/Ultimate Nature Pack by Quaternius/WoodLog.fbx" id="1_7k2wp"]
+
+[node name="WoodLog" instance=ExtResource("1_7k2wp")]

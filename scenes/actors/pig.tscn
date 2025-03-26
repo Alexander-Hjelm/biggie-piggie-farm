@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7474uthuno2m"]
+
+[ext_resource type="PackedScene" uid="uid://cwhamxfoke0jr" path="res://fbx/FarmAnimals_v1.1/Pig.fbx" id="1_sq5kf"]
+
+[node name="Pig" instance=ExtResource("1_sq5kf")]

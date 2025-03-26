@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://y118r4gq8sfr"]
+
+[ext_resource type="PackedScene" uid="uid://bke27c1gwkp4a" path="res://fbx/Ultimate Nature Pack by Quaternius/Bush_1.fbx" id="1_tohpd"]
+
+[node name="Bush_1" instance=ExtResource("1_tohpd")]

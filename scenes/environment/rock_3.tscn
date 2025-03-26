@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmygjb1stgjww"]
+
+[ext_resource type="PackedScene" uid="uid://bptq3su21jls0" path="res://fbx/Ultimate Nature Pack by Quaternius/Rock_3.fbx" id="1_wutol"]
+
+[node name="Rock_3" instance=ExtResource("1_wutol")]

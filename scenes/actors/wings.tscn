@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ibkkb0oe3dn"]
+
+[ext_resource type="PackedScene" uid="uid://c6bftds0w3d8o" path="res://fbx/Lee Suk/Angel Wings 01 - Animation - slow flapping wings.FBX" id="1_oricw"]
+[ext_resource type="Script" uid="uid://dw3r1smov8fnx" path="res://scripts/AnimationPlayer.cs" id="2_pjdm8"]
+
+[node name="Wings" instance=ExtResource("1_oricw")]
+
+[node name="Skeleton3D" parent="." index="0"]
+bones/2/rotation = Quaternion(0.323349, -0.628844, -0.285326, 0.646984)
+bones/3/rotation = Quaternion(-0.00477362, -0.0475812, -0.0667134, 0.996626)
+bones/4/rotation = Quaternion(-0.0128504, -0.0540083, -0.219856, 0.973952)
+bones/5/rotation = Quaternion(-0.00496961, -0.0882171, -0.0489815, 0.994884)
+bones/6/rotation = Quaternion(-0.00436856, -0.0789061, -0.0561515, 0.99529)
+bones/7/rotation = Quaternion(0.00133155, -0.0419851, 0.0338445, 0.998544)
+bones/7/scale = Vector3(0.995999, 1, 1)
+bones/9/rotation = Quaternion(0.646984, 0.285327, 0.628844, 0.323349)
+bones/10/rotation = Quaternion(0.00477387, 0.0475804, -0.066713, 0.996626)
+bones/11/rotation = Quaternion(0.0128512, 0.0540087, -0.219856, 0.973952)
+bones/11/scale = Vector3(0.997, 1, 1)
+bones/12/rotation = Quaternion(0.00497717, 0.0882167, -0.0489827, 0.994884)
+bones/12/scale = Vector3(1.016, 1, 1)
+bones/13/rotation = Quaternion(0.00434202, 0.0789065, -0.0561512, 0.99529)
+bones/14/rotation = Quaternion(-0.00133831, 0.041986, 0.0338461, 0.998544)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Take 001"
+speed_scale = 1.5
+"next/Take 001" = &"Take 001"
+script = ExtResource("2_pjdm8")

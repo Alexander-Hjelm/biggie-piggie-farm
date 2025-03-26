@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvjg16xxvg47u"]
+
+[ext_resource type="PackedScene" uid="uid://bsq2lqy73e8ro" path="res://fbx/FarmAnimals_v1.1/ChickenBrown.fbx" id="1_8lku0"]
+
+[node name="ChickenBrown" instance=ExtResource("1_8lku0")]

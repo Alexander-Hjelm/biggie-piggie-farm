@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd3qycbk67j8g"]
+
+[ext_resource type="PackedScene" uid="uid://b8jtyfq1ndfaf" path="res://fbx/Ultimate Nature Pack by Quaternius/Plant_5.fbx" id="1_cucgs"]
+
+[node name="Plant_5" instance=ExtResource("1_cucgs")]
