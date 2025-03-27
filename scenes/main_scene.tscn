@@ -40,7 +40,6 @@ update_scale = false
 [node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("Target")]
 script = ExtResource("2_k3g67")
 Target = NodePath("../Player")
-SmoothingFactor = 6.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 100, 100)

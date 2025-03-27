@@ -1,0 +1,6 @@
+res://scripts/CameraMovement.cs
+res://scenes/main_scene.tscn
+res://environments/main_environment.tres
+res://scenes/player.tscn
+res://scripts/AnimationPlayer.cs
+res://scripts/Player.cs
