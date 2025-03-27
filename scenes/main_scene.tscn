@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://0qg7fmv416xk"]
+[gd_scene load_steps=29 format=3 uid="uid://0qg7fmv416xk"]
 
 [ext_resource type="PackedScene" uid="uid://3hlh5vuckek0" path="res://scenes/player.tscn" id="1_0f027"]
 [ext_resource type="Environment" uid="uid://bl1p6ceaxbj8y" path="res://environments/main_environment.tres" id="2_2c62f"]
+[ext_resource type="Script" uid="uid://bpd6pw7n6g682" path="res://scripts/CameraMovement.cs" id="2_k3g67"]
 [ext_resource type="PackedScene" uid="uid://dvjg16xxvg47u" path="res://scenes/actors/chicken.tscn" id="3_rt2n2"]
 [ext_resource type="PackedScene" uid="uid://bj5qv3h4nn43p" path="res://scenes/actors/cow.tscn" id="4_c16ls"]
 [ext_resource type="PackedScene" uid="uid://cb4m240momnfj" path="res://scenes/actors/duck.tscn" id="5_18nlu"]
@@ -33,11 +34,13 @@
 [node name="Player" parent="." instance=ExtResource("1_0f027")]
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Player"]
-remote_path = NodePath("../../CameraPivot")
 update_rotation = false
 update_scale = false
 
-[node name="CameraPivot" type="Node3D" parent="."]
+[node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("Target")]
+script = ExtResource("2_k3g67")
+Target = NodePath("../Player")
+SmoothingFactor = 6.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 100, 100)
