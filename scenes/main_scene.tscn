@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://0qg7fmv416xk"]
+[gd_scene load_steps=30 format=3 uid="uid://0qg7fmv416xk"]
 
 [ext_resource type="PackedScene" uid="uid://3hlh5vuckek0" path="res://scenes/player.tscn" id="1_0f027"]
 [ext_resource type="Environment" uid="uid://bl1p6ceaxbj8y" path="res://environments/main_environment.tres" id="2_2c62f"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://djvtukls013dh" path="res://scenes/environment/rock_moss_2.tscn" id="25_segjr"]
 [ext_resource type="PackedScene" uid="uid://ubtu2x2mmlpn" path="res://scenes/environment/tree_stump.tscn" id="26_beobj"]
 [ext_resource type="PackedScene" uid="uid://dmbd6dp2gdadj" path="res://scenes/environment/wood_log.tscn" id="27_267kh"]
+[ext_resource type="PackedScene" uid="uid://dbb3yclxxt8vw" path="res://scenes/soil.tscn" id="29_4bgka"]
 
 [node name="MainScene" type="Node3D"]
 
@@ -160,3 +161,6 @@ transform = Transform3D(0.232851, 0, 0.972512, 0, 1, 0, -0.972512, 0, 0.232851, 
 
 [node name="SheepWhite" parent="Environment/3D" instance=ExtResource("6_c1pb6")]
 transform = Transform3D(0.593686, 0, 0.804697, 0, 1, 0, -0.804697, 0, 0.593686, -2.53087, 0, 0)
+
+[node name="Soil" parent="." instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.5, 0)
