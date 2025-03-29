@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 public partial class PlayerInteraction : Node3D
@@ -17,7 +16,6 @@ public partial class PlayerInteraction : Node3D
 		if (_rayCast3D.IsColliding())
 		{
 			CollisionObject3D collider = _rayCast3D.GetCollider() as CollisionObject3D;
-            
 			GD.Print(collider);
 		}
 		else
