@@ -38,10 +38,6 @@
             "program": "C:/Program Files/Godot_v4.4.1-stable_mono_win64/Godot_v4.4.1-stable_mono_win64.exe",
             "console": "internalConsole",
             "stopAtEntry": false,
-            "args": [
-                "--path",
-                "${workspaceRoot}"
-            ]
         }
     ]
 }
