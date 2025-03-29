@@ -62,41 +62,31 @@ public partial class Soil : Node3D
     }
 
 	public bool EvalIsInteractable()
-	{
-		if (
-			_soilStatus == SoilStatus.Soil
-			&& Player.GetInstance().CurrentTool.Capabilities.Contains(ToolResource.Capability.TILL)
-		)
-		{
-			return true;
-		}
-		else if (
-			_soilStatus == SoilStatus.Tilled
-			&& Player.GetInstance().CurrentTool.Capabilities.Contains(ToolResource.Capability.WATER)
-		)
-		{
-			return true;
-		}
-		return false;
-	}
+    {
+        return
+			IsInteractableForSoilType(SoilStatus.Soil, ToolResource.Capability.TILL)
+			|| IsInteractableForSoilType(SoilStatus.Tilled, ToolResource.Capability.WATER);
+    }
 
-	public void InteractCallback()
+
+
+    public void InteractCallback()
 	{
-		if (
-			_soilStatus == SoilStatus.Soil
-			&& Player.GetInstance().CurrentTool.Capabilities.Contains(ToolResource.Capability.TILL)
-		)
+		if (IsInteractableForSoilType(SoilStatus.Soil, ToolResource.Capability.TILL))
 		{
 			SetSoilStatus(SoilStatus.Tilled);
 		}
-		if (
-			_soilStatus == SoilStatus.Tilled
-			&& Player.GetInstance().CurrentTool.Capabilities.Contains(ToolResource.Capability.WATER)
-		)
+		else if (IsInteractableForSoilType(SoilStatus.Tilled, ToolResource.Capability.WATER))
 		{
 			SetSoilStatus(SoilStatus.Watered);
 		}
 	}
+
+	private bool IsInteractableForSoilType(SoilStatus soilStatus, ToolResource.Capability capability)
+    {
+        return _soilStatus == soilStatus
+			&& Player.GetInstance().CurrentTool.Capabilities.Contains(capability);
+    }
 
 	public void SetSoilStatus(SoilStatus soilStatus)
 	{
