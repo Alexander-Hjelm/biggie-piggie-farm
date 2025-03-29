@@ -30,8 +30,6 @@ namespace biggiepiggiefarm.scripts
 
 				if (colliderRootObj.IsInGroup(Groups.INTERACTABLE))
 				{
-					//GD.Print(collider);
-					//GD.Print(colliderRootObj);
 					_highlightInstance.Position = colliderRootObj.Position + new Vector3(0, 0.5f, 0);
 					_highlightInstance.Visible = true;
 					_selectedSoil = colliderRootObj as Soil;
@@ -45,7 +43,10 @@ namespace biggiepiggiefarm.scripts
 
 			if (Input.IsActionJustPressed("interact"))
 			{
-				GD.Print(_selectedSoil);
+				if (_selectedSoil != null)
+				{
+					_selectedSoil.SetSoilStatus(Soil.SoilStatus.Tilled);
+				}
 			}
 		}
 	}
