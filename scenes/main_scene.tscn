@@ -34,10 +34,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_0f027")]
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Player"]
-update_rotation = false
-update_scale = false
-
 [node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("Target")]
 script = ExtResource("2_k3g67")
 Target = NodePath("../Player")
@@ -163,4 +159,12 @@ transform = Transform3D(0.232851, 0, 0.972512, 0, 1, 0, -0.972512, 0, 0.232851, 
 transform = Transform3D(0.593686, 0, 0.804697, 0, 1, 0, -0.804697, 0, 0.593686, -2.53087, 0, 0)
 
 [node name="Soil" parent="." instance=ExtResource("29_4bgka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.5, 1.10407)
+SoilStatusStart = 2
+
+[node name="Soil2" parent="." instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.5, 0.104069)
+SoilStatusStart = 1
+
+[node name="Soil3" parent="." instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.5, -0.895931)

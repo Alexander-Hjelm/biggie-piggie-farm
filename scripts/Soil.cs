@@ -12,15 +12,18 @@ public partial class Soil : Node3D
 
 	[Export]
 	public Material SoilMaterial { get; set; }
-	[Export]
 
+	[Export]
 	public Material SoilTilledMaterial { get; set; }
-	[Export]
 
+	[Export]
 	public Material SoilWateredMaterial { get; set; }
 
-	private Dictionary<SoilStatus, Material> _materialsLookup;
+	[Export]
+	private SoilStatus SoilStatusStart { get; set; }
+
 	private SoilStatus _soilStatus;
+	private Dictionary<SoilStatus, Material> _materialsLookup;
 	private CsgBox3D _box3d;
 
 	public override void _Ready()
@@ -36,7 +39,7 @@ public partial class Soil : Node3D
 
 		_box3d = GetNode("./CSGBox3D") as CsgBox3D;
 
-		SetSoilStatus(SoilStatus.Soil);
+		SetSoilStatus(SoilStatusStart);
 	}
 
 	public void SetSoilStatus(SoilStatus soilStatus)
