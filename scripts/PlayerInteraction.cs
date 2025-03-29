@@ -11,6 +11,7 @@ namespace biggiepiggiefarm.scripts
 
 		private RayCast3D _rayCast3D;
 		private Node3D _highlightInstance;
+		private Soil _selectedSoil = null;
 
 		public override void _Ready()
 		{
@@ -29,15 +30,22 @@ namespace biggiepiggiefarm.scripts
 
 				if (colliderRootObj.IsInGroup(Groups.INTERACTABLE))
 				{
-					GD.Print(collider);
-					GD.Print(colliderRootObj);
+					//GD.Print(collider);
+					//GD.Print(colliderRootObj);
 					_highlightInstance.Position = colliderRootObj.Position + new Vector3(0, 0.5f, 0);
 					_highlightInstance.Visible = true;
+					_selectedSoil = colliderRootObj as Soil;
 				}
 			}
 			else
 			{
 				_highlightInstance.Visible = false;
+				_selectedSoil = null;
+			}
+
+			if (Input.IsActionJustPressed("interact"))
+			{
+				GD.Print(_selectedSoil);
 			}
 		}
 	}
