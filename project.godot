@@ -19,6 +19,10 @@ config/icon="res://img/icon.svg"
 
 project/assembly_name="biggie-piggie-farm"
 
+[global_group]
+
+interactable=""
+
 [input]
 
 move_right={

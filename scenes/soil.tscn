@@ -7,7 +7,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elpkx"]
 
-[node name="Soil" type="Node3D"]
+[node name="Soil" type="Node3D" groups=["interactable"]]
 script = ExtResource("1_glwfu")
 SoilMaterial = ExtResource("2_elpkx")
 SoilTilledMaterial = ExtResource("3_7xcux")
