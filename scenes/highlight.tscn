@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://fk81ycc4we00"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cn7j3"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0, 0, 1, 0.47451)
+
+[node name="Highlight" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0.05, 0)
+material = SubResource("StandardMaterial3D_cn7j3")

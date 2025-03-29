@@ -55,22 +55,6 @@ environment = ExtResource("2_2c62f")
 
 [node name="3D" type="Node3D" parent="Environment"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Environment/3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(10, 1, 10)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Environment/3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, 4.5)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -4.5)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, 4.5)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Environment/3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -4.5)
-
 [node name="CommonTree_3" parent="Environment/3D" instance=ExtResource("7_k67gn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93276, 0, -3.51192)
 
@@ -158,13 +142,304 @@ transform = Transform3D(0.232851, 0, 0.972512, 0, 1, 0, -0.972512, 0, 0.232851, 
 [node name="SheepWhite" parent="Environment/3D" instance=ExtResource("6_c1pb6")]
 transform = Transform3D(0.593686, 0, 0.804697, 0, 1, 0, -0.804697, 0, 0.593686, -2.53087, 0, 0)
 
-[node name="Soil" parent="." instance=ExtResource("29_4bgka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.5, 1.10407)
-SoilStatusStart = 2
+[node name="Soil" type="Node3D" parent="."]
 
-[node name="Soil2" parent="." instance=ExtResource("29_4bgka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.5, 0.104069)
-SoilStatusStart = 1
+[node name="Soil" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, -4.5)
 
-[node name="Soil3" parent="." instance=ExtResource("29_4bgka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.5, -0.895931)
+[node name="Soil2" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, -4.5)
+
+[node name="Soil3" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -4.5)
+
+[node name="Soil4" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, -4.5)
+
+[node name="Soil5" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -4.5)
+
+[node name="Soil6" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, -4.5)
+
+[node name="Soil7" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, -4.5)
+
+[node name="Soil8" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -4.5)
+
+[node name="Soil9" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, -4.5)
+
+[node name="Soil10" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, -4.5)
+
+[node name="Soil11" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, -3.5)
+
+[node name="Soil12" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, -3.5)
+
+[node name="Soil13" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -3.5)
+
+[node name="Soil14" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, -3.5)
+
+[node name="Soil15" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -3.5)
+
+[node name="Soil16" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, -3.5)
+
+[node name="Soil17" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, -3.5)
+
+[node name="Soil18" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -3.5)
+
+[node name="Soil19" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, -3.5)
+
+[node name="Soil20" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, -3.5)
+
+[node name="Soil21" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, -2.5)
+
+[node name="Soil22" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, -2.5)
+
+[node name="Soil23" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -2.5)
+
+[node name="Soil24" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, -2.5)
+
+[node name="Soil25" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -2.5)
+
+[node name="Soil26" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, -2.5)
+
+[node name="Soil27" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, -2.5)
+
+[node name="Soil28" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -2.5)
+
+[node name="Soil29" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, -2.5)
+
+[node name="Soil30" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, -2.5)
+
+[node name="Soil31" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, -1.5)
+
+[node name="Soil32" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, -1.5)
+
+[node name="Soil33" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -1.5)
+
+[node name="Soil34" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, -1.5)
+
+[node name="Soil35" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -1.5)
+
+[node name="Soil36" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, -1.5)
+
+[node name="Soil37" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, -1.5)
+
+[node name="Soil38" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -1.5)
+
+[node name="Soil39" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, -1.5)
+
+[node name="Soil40" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, -1.5)
+
+[node name="Soil41" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, -0.5)
+
+[node name="Soil42" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, -0.5)
+
+[node name="Soil43" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, -0.5)
+
+[node name="Soil44" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, -0.5)
+
+[node name="Soil45" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -0.5)
+
+[node name="Soil46" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, -0.5)
+
+[node name="Soil47" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, -0.5)
+
+[node name="Soil48" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -0.5)
+
+[node name="Soil49" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, -0.5)
+
+[node name="Soil50" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, -0.5)
+
+[node name="Soil51" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, 0.5)
+
+[node name="Soil52" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, 0.5)
+
+[node name="Soil53" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 0.5)
+
+[node name="Soil54" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, 0.5)
+
+[node name="Soil55" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, 0.5)
+
+[node name="Soil56" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
+
+[node name="Soil57" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, 0.5)
+
+[node name="Soil58" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 0.5)
+
+[node name="Soil59" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, 0.5)
+
+[node name="Soil60" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, 0.5)
+
+[node name="Soil61" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, 1.5)
+
+[node name="Soil62" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, 1.5)
+
+[node name="Soil63" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 1.5)
+
+[node name="Soil64" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, 1.5)
+
+[node name="Soil65" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, 1.5)
+
+[node name="Soil66" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 1.5)
+
+[node name="Soil67" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, 1.5)
+
+[node name="Soil68" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 1.5)
+
+[node name="Soil69" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, 1.5)
+
+[node name="Soil70" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, 1.5)
+
+[node name="Soil71" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, 2.5)
+
+[node name="Soil72" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, 2.5)
+
+[node name="Soil73" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 2.5)
+
+[node name="Soil74" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, 2.5)
+
+[node name="Soil75" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, 2.5)
+
+[node name="Soil76" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 2.5)
+
+[node name="Soil77" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, 2.5)
+
+[node name="Soil78" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 2.5)
+
+[node name="Soil79" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, 2.5)
+
+[node name="Soil80" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, 2.5)
+
+[node name="Soil81" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, 3.5)
+
+[node name="Soil82" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, 3.5)
+
+[node name="Soil83" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 3.5)
+
+[node name="Soil84" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, 3.5)
+
+[node name="Soil85" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, 3.5)
+
+[node name="Soil86" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 3.5)
+
+[node name="Soil87" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, 3.5)
+
+[node name="Soil88" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 3.5)
+
+[node name="Soil89" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, 3.5)
+
+[node name="Soil90" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, 3.5)
+
+[node name="Soil91" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, 4.5)
+
+[node name="Soil92" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.5, 4.5)
+
+[node name="Soil93" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.5, 4.5)
+
+[node name="Soil94" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, 4.5)
+
+[node name="Soil95" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, 4.5)
+
+[node name="Soil96" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 4.5)
+
+[node name="Soil97" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, 4.5)
+
+[node name="Soil98" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 4.5)
+
+[node name="Soil99" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.5, 4.5)
+
+[node name="Soil100" parent="Soil" instance=ExtResource("29_4bgka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, 4.5)

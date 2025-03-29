@@ -5,14 +5,20 @@ namespace biggiepiggiefarm.scripts
 {
 	public partial class PlayerInteraction : Node3D
 	{
+
+		[Export]
+		public PackedScene Highlight { get; set; }
+
 		private RayCast3D _rayCast3D;
+		private Node3D _highlightInstance;
 
 		public override void _Ready()
 		{
 			base._Ready();
 			_rayCast3D = GetNode<RayCast3D>("./RayCast3D");
+			_highlightInstance = Highlight.Instantiate<Node3D>();
+			GetWindow().CallDeferred("add_child", _highlightInstance);
 		}
-
 
 		public override void _PhysicsProcess(double delta)
 		{
@@ -23,12 +29,15 @@ namespace biggiepiggiefarm.scripts
 
 				if (colliderRootObj.IsInGroup(Groups.INTERACTABLE))
 				{
+					GD.Print(collider);
 					GD.Print(colliderRootObj);
+					_highlightInstance.Position = colliderRootObj.Position + new Vector3(0, 0.5f, 0);
+					_highlightInstance.Visible = true;
 				}
 			}
 			else
 			{
-				GD.Print("Not colliding");
+				_highlightInstance.Visible = false;
 			}
 		}
 	}
