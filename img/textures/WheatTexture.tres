@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://856lj56y0t04"]
+
+[ext_resource type="Texture2D" uid="uid://b8obhsqeqqsw2" path="res://fbx/99_vegetables_and_herbs/spritesheet_veg.png" id="1_rluxn"]
+
+[resource]
+atlas = ExtResource("1_rluxn")
+region = Rect2(187, 5, 16, 16)

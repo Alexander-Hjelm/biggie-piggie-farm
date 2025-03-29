@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SeedResource" load_steps=3 format=3 uid="uid://c6u2vay75ngpw"]
+
+[ext_resource type="Script" uid="uid://cipkvrbgsn2t3" path="res://scripts/SeedResource.cs" id="1_ny74t"]
+[ext_resource type="Texture2D" uid="uid://bxo1axweicd50" path="res://img/textures/WheatSeedTexture.tres" id="1_xhp48"]
+
+[resource]
+script = ExtResource("1_ny74t")
+DaysToGrow = 1
+Name = "Wheat Seed"
+Description = "Grows a Wheat plant"
+Cost = 5
+Icon = ExtResource("1_xhp48")
+metadata/_custom_type_script = "uid://cipkvrbgsn2t3"
