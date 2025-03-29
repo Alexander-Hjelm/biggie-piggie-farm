@@ -6,8 +6,31 @@ public partial class Player : CharacterBody3D
 	[Export]
 	public int Speed { get; set; } = 5;
 
+	[Export]
+	public ToolResource CurrentTool { get; private set; }
+
+	private static Player _instance;
 	private Vector3 _targetVelocity = Vector3.Zero;
-	
+
+	public static Player GetInstance()
+	{
+		return _instance;
+	}
+
+    public override void _Ready()
+    {
+        base._Ready();
+		if (_instance == null)
+		{
+			_instance = this;
+		}
+		else
+		{
+			GD.PrintErr("There are more than one Player instance in the scene. Make sure that there is only one.");
+		}
+    }
+
+
 	public override void _PhysicsProcess(double delta)
 	{
 		// We create a local variable to store the input direction.

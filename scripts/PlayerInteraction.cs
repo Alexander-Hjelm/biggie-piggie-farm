@@ -11,7 +11,7 @@ namespace biggiepiggiefarm.scripts
 
 		private RayCast3D _rayCast3D;
 		private Node3D _highlightInstance;
-		private Soil _selectedSoil = null;
+		private Interactable _selectedInteractable;
 
 		public override void _Ready()
 		{
@@ -23,6 +23,8 @@ namespace biggiepiggiefarm.scripts
 
 		public override void _PhysicsProcess(double delta)
 		{
+			_highlightInstance.Visible = false;
+			_selectedInteractable = null;
 			if (_rayCast3D.IsColliding())
 			{
 				CollisionObject3D collider = _rayCast3D.GetCollider() as CollisionObject3D;
@@ -30,23 +32,23 @@ namespace biggiepiggiefarm.scripts
 
 				if (colliderRootObj.IsInGroup(Groups.INTERACTABLE))
 				{
-					_highlightInstance.Position = colliderRootObj.Position + new Vector3(0, 0.5f, 0);
-					_highlightInstance.Visible = true;
-					_selectedSoil = colliderRootObj as Soil;
+					Interactable interactable = colliderRootObj.GetNode("./Interactable") as Interactable;
+					if(interactable.IsInteractable())
+					{
+						_highlightInstance.Position = colliderRootObj.Position + new Vector3(0, 0.5f, 0);
+						_highlightInstance.Visible = true;
+						_selectedInteractable = interactable;
+					}
 				}
-			}
-			else
-			{
-				_highlightInstance.Visible = false;
-				_selectedSoil = null;
 			}
 
-			if (Input.IsActionJustPressed("interact"))
+			if (
+				Input.IsActionJustPressed("interact")
+				&&_selectedInteractable != null
+				&& _selectedInteractable.IsInteractable()
+			)
 			{
-				if (_selectedSoil != null)
-				{
-					_selectedSoil.SetSoilStatus(Soil.SoilStatus.Tilled);
-				}
+				_selectedInteractable.Interact();
 			}
 		}
 	}
