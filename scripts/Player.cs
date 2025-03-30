@@ -30,7 +30,6 @@ public partial class Player : CharacterBody3D
 		}
     }
 
-
 	public override void _PhysicsProcess(double delta)
 	{
 		// We create a local variable to store the input direction.
@@ -61,7 +60,7 @@ public partial class Player : CharacterBody3D
 			direction = direction.Normalized();
 			// Setting the basis property will affect the rotation of the node.
 			//GetNode<CharacterBody3D>(".").Basis = Basis.LookingAt(direction);
-			this.Basis = Basis.LookingAt(direction);
+			Basis = Basis.LookingAt(direction);
 		}
 		
 		// Ground velocity
@@ -77,6 +76,12 @@ public partial class Player : CharacterBody3D
 		// Moving the character
 		Velocity = _targetVelocity;
 		MoveAndSlide();
+
+		// Open/Close inventory
+		if (Input.IsActionJustPressed("inventory"))
+		{
+			InventoryManager inventoryManager = InventoryManager._instance;
+			inventoryManager.ToggleInventory();
+		}
 	}
-	
 }

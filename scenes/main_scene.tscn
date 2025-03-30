@@ -1,12 +1,15 @@
-[gd_scene load_steps=31 format=3 uid="uid://0qg7fmv416xk"]
+[gd_scene load_steps=35 format=3 uid="uid://0qg7fmv416xk"]
 
 [ext_resource type="PackedScene" uid="uid://3hlh5vuckek0" path="res://scenes/player.tscn" id="1_0f027"]
 [ext_resource type="Environment" uid="uid://bl1p6ceaxbj8y" path="res://environments/main_environment.tres" id="2_2c62f"]
 [ext_resource type="Resource" uid="uid://cuk3x8dx3d721" path="res://resources/items/tools/WateringCan.tres" id="2_02d50"]
 [ext_resource type="Script" uid="uid://bpd6pw7n6g682" path="res://scripts/CameraMovement.cs" id="2_k3g67"]
+[ext_resource type="Resource" uid="uid://c6u2vay75ngpw" path="res://resources/items/seeds/WheatSeed.tres" id="2_l40q6"]
+[ext_resource type="Resource" uid="uid://b6jmw62lr08fn" path="res://resources/items/tools/Hoe.tres" id="3_iav3h"]
 [ext_resource type="PackedScene" uid="uid://dvjg16xxvg47u" path="res://scenes/actors/chicken.tscn" id="3_rt2n2"]
 [ext_resource type="PackedScene" uid="uid://bj5qv3h4nn43p" path="res://scenes/actors/cow.tscn" id="4_c16ls"]
 [ext_resource type="PackedScene" uid="uid://cb4m240momnfj" path="res://scenes/actors/duck.tscn" id="5_18nlu"]
+[ext_resource type="Resource" uid="uid://l72elbkkbr55" path="res://resources/items/Wheat.tres" id="5_womr8"]
 [ext_resource type="PackedScene" uid="uid://ihkqvlu847hs" path="res://scenes/actors/sheep.tscn" id="6_c1pb6"]
 [ext_resource type="PackedScene" uid="uid://co35dt8soxssc" path="res://scenes/environment/common_tree_3.tscn" id="7_k67gn"]
 [ext_resource type="PackedScene" uid="uid://cabag0j85wh8l" path="res://scenes/environment/common_tree_4.tscn" id="8_k3g67"]
@@ -30,8 +33,18 @@
 [ext_resource type="PackedScene" uid="uid://ubtu2x2mmlpn" path="res://scenes/environment/tree_stump.tscn" id="26_beobj"]
 [ext_resource type="PackedScene" uid="uid://dmbd6dp2gdadj" path="res://scenes/environment/wood_log.tscn" id="27_267kh"]
 [ext_resource type="PackedScene" uid="uid://dbb3yclxxt8vw" path="res://scenes/soil.tscn" id="29_4bgka"]
+[ext_resource type="PackedScene" uid="uid://r2jql6erjfqq" path="res://scenes/inventory_menu.tscn" id="31_pgk25"]
 
 [node name="MainScene" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InventoryMenuControl" parent="UI" instance=ExtResource("31_pgk25")]
+Items = [ExtResource("2_l40q6"), ExtResource("3_iav3h"), ExtResource("2_02d50"), ExtResource("5_womr8"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
 [node name="Player" parent="." instance=ExtResource("1_0f027")]
 CurrentTool = ExtResource("2_02d50")

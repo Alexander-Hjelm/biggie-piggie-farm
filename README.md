@@ -28,18 +28,18 @@
 
 ```json
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Launch",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "C:/Program Files/Godot_v4.4.1-stable_mono_win64/Godot_v4.4.1-stable_mono_win64.exe",
-            "console": "internalConsole",
-            "stopAtEntry": false,
-        }
-    ]
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "C:/Program Files/Godot_v4.4.1-stable_mono_win64/Godot_v4.4.1-stable_mono_win64.exe",
+			"console": "internalConsole",
+			"stopAtEntry": false,
+		}
+	]
 }
 ```
 
@@ -47,21 +47,21 @@
 
 ```json
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "command": "C:/Program Files/Godot_v4.4.1-stable_mono_win64/Godot_v4.4.1-stable_mono_win64.exe",
-            "type": "shell",
-            "args": [
-                "--build-solutions",
-                "--path",
-                "${workspaceRoot}",
-                "--no-window",
-                "-q"
-            ],
-            "problemMatcher": "$msCompile"
-        }
-    ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"command": "C:/Program Files/Godot_v4.4.1-stable_mono_win64/Godot_v4.4.1-stable_mono_win64.exe",
+			"type": "shell",
+			"args": [
+				"--build-solutions",
+				"--path",
+				"${workspaceRoot}",
+				"--no-window",
+				"-q"
+			],
+			"problemMatcher": "$msCompile"
+		}
+	]
 }
 ```

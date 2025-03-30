@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b05fmwnhfjjg7"]
+
+[ext_resource type="Script" uid="uid://b7ptamq2ic176" path="res://scripts/UI/ItemSlot.cs" id="1_eqbkm"]
+[ext_resource type="Texture2D" uid="uid://c75hm0a641rc4" path="res://img/textures/WateringCanTexture.tres" id="2_l0xgl"]
+
+[node name="ItemSlot" type="Control" node_paths=PackedStringArray("TextureRect")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_eqbkm")
+TextureRect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_l0xgl")
