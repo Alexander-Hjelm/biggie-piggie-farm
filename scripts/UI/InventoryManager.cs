@@ -36,8 +36,8 @@ public partial class InventoryManager : Control
 		{
 			ItemSlot itemSlot = GridContainer.GetNode($"ItemSlot{i+1}") as ItemSlot;
 			itemSlot.OnClick += OnSlotClickCallback;
-			itemSlot.OnMouseEnter += OnSloutMouseEnterCallback;
-			itemSlot.OnMouseExit += OnSloutMouseExitCallback;
+			itemSlot.OnMouseEnter += OnSlotMouseEnterCallback;
+			itemSlot.OnMouseExit += OnSlotMouseExitCallback;
 		}
 
 		exitButton.OnClick += OnExitButtonClickCallback;
@@ -80,12 +80,13 @@ public partial class InventoryManager : Control
 		EmitSignal(SignalName.OnSlotClick, item);
 	}
 
-	public void OnSloutMouseEnterCallback(ItemResource item)
+	public void OnSlotMouseEnterCallback(ItemResource item)
 	{
+		GD.Print("OnSlotMouseEnterCallback");
 		RenderItemInfo(item);
 	}
 
-	public void OnSloutMouseExitCallback(ItemResource item)
+	public void OnSlotMouseExitCallback(ItemResource item)
 	{
 		RenderItemInfo(null);
 	}

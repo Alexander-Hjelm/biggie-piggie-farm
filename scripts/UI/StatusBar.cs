@@ -13,6 +13,6 @@ public partial class StatusBar : Control
 
     private void CurrentToolChangedCallback(ToolResource tool)
     {
-        playerCurrentToolItemSlot.TextureRect.Texture = tool.Icon;
+        playerCurrentToolItemSlot.SetItem(tool);
     }
 }

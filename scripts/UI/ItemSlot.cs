@@ -3,9 +3,6 @@ using Godot;
 public partial class ItemSlot : Control
 {
     [Export]
-    public TextureRect TextureRect;
-
-    [Export]
     public ButtonWithSignalNoArgs Button;
 
     [Signal]
@@ -23,20 +20,8 @@ public partial class ItemSlot : Control
     {
         base._Ready();
         Button.OnClick += OnClickCallback;
-    }
-
-
-    public override void _Notification(int what)
-    {
-        switch (what)
-        {
-            case unchecked((int)NotificationMouseEnter):
-                OnMouseEnterCallback();
-                break;
-            case unchecked((int)NotificationMouseExit):
-                OnMouseExitCallback();
-                break;
-        }
+        Button.OnMouseEnter += OnMouseEnterCallback;
+        Button.OnMouseExit += OnMouseExitCallback;
     }
 
     public void SetItem(ItemResource item)
@@ -44,13 +29,13 @@ public partial class ItemSlot : Control
         if(item != null)
         {
             _item = item;
-            TextureRect.Texture = item.Icon;
-            TextureRect.Visible = true;
+            Button.Icon = item.Icon;
+            Button.Visible = true;
         }
         else
         {
             _item = null;
-            TextureRect.Visible = false;
+            Button.Visible = false;
         }
     }
 
@@ -61,6 +46,7 @@ public partial class ItemSlot : Control
 
     private void OnMouseEnterCallback()
     {
+        GD.Print("ItemSlot, OnMouseEnterCallback");
         EmitSignal(SignalName.OnMouseEnter, _item);
     }
 

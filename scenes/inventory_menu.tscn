@@ -65,8 +65,8 @@ layout_mode = 2
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/h_separation = 68
-theme_override_constants/v_separation = 68
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
 columns = 8
 
 [node name="ItemSlot1" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
