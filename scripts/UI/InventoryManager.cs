@@ -22,9 +22,9 @@ public partial class InventoryManager : Control
 
 	private int _inventorySize = 32;
 
-	public override void _Ready()
-	{
-		base._Ready();
+    public override void _EnterTree()
+    {
+        base._EnterTree();
 		if (_instance == null)
 		{
 			_instance = this;
@@ -33,13 +33,12 @@ public partial class InventoryManager : Control
 		{
 			GD.PrintErr("There are more than one InventoryManager instance in the scene. Make sure that there is only one.");
 		}
-		TabContainer.Visible = false;
+    }
 
-	}
-
-	public override void _EnterTree()
+	public override void _Ready()
 	{
-		base._EnterTree();
+		base._Ready();
+		TabContainer.Visible = false;
 		RenderItemInfo(null);
 	}
 

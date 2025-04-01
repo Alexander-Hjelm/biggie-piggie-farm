@@ -4,9 +4,9 @@ public partial class UIManager : Control
 {
 	public static UIManager _instance { get; private set; }
 
-	public override void _Ready()
+	public override void _EnterTree()
 	{
-		base._Ready();
+		base._EnterTree();
 		if (_instance == null)
 		{
 			_instance = this;

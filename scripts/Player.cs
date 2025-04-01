@@ -17,9 +17,9 @@ public partial class Player : CharacterBody3D
 		return _instance;
 	}
 
-    public override void _Ready()
+    public override void _EnterTree()
     {
-        base._Ready();
+        base._EnterTree();
 		if (_instance == null)
 		{
 			_instance = this;
