@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://0qg7fmv416xk"]
+[gd_scene load_steps=36 format=3 uid="uid://0qg7fmv416xk"]
 
 [ext_resource type="PackedScene" uid="uid://3hlh5vuckek0" path="res://scenes/player.tscn" id="1_0f027"]
 [ext_resource type="Environment" uid="uid://bl1p6ceaxbj8y" path="res://environments/main_environment.tres" id="2_2c62f"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cb4m240momnfj" path="res://scenes/actors/duck.tscn" id="5_18nlu"]
 [ext_resource type="Resource" uid="uid://l72elbkkbr55" path="res://resources/items/Wheat.tres" id="5_womr8"]
 [ext_resource type="PackedScene" uid="uid://ihkqvlu847hs" path="res://scenes/actors/sheep.tscn" id="6_c1pb6"]
+[ext_resource type="PackedScene" uid="uid://nfrogjy8c5uq" path="res://scenes/ui/status_bar.tscn" id="6_iav3h"]
 [ext_resource type="PackedScene" uid="uid://co35dt8soxssc" path="res://scenes/environment/common_tree_3.tscn" id="7_k67gn"]
 [ext_resource type="PackedScene" uid="uid://cabag0j85wh8l" path="res://scenes/environment/common_tree_4.tscn" id="8_k3g67"]
 [ext_resource type="PackedScene" uid="uid://d3u7xpdfd5l3a" path="res://scenes/environment/common_tree_5.tscn" id="9_4bgka"]
@@ -39,9 +40,14 @@
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatusBar" parent="UI" instance=ExtResource("6_iav3h")]
+layout_mode = 1
 
 [node name="InventoryMenuControl" parent="UI" instance=ExtResource("31_pgk25")]
 Items = [ExtResource("2_l40q6"), ExtResource("3_iav3h"), ExtResource("2_02d50"), ExtResource("5_womr8"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]

@@ -9,6 +9,9 @@ public partial class Player : CharacterBody3D
 	[Export]
 	public ToolResource CurrentTool { get; private set; }
 
+	[Signal]
+    public delegate void CurrentToolChangedEventHandler(ToolResource tool);
+
 	private static Player _instance;
 	private Vector3 _targetVelocity = Vector3.Zero;
 
@@ -27,6 +30,19 @@ public partial class Player : CharacterBody3D
 		else
 		{
 			GD.PrintErr("There are more than one Player instance in the scene. Make sure that there is only one.");
+		}
+    }
+
+
+    public override void _Ready()
+    {
+        base._Ready();
+
+
+		// Ensure that the CurrentToolChanged signal is emitted on game start
+		if (CurrentTool != null)
+		{
+			SetCurrentTool(CurrentTool);
 		}
     }
 
@@ -83,5 +99,11 @@ public partial class Player : CharacterBody3D
 			InventoryManager inventoryManager = InventoryManager._instance;
 			inventoryManager.ToggleInventory();
 		}
+	}
+
+	public void SetCurrentTool(ToolResource tool)
+	{
+		CurrentTool = tool;
+		EmitSignal(SignalName.CurrentToolChanged, tool);
 	}
 }

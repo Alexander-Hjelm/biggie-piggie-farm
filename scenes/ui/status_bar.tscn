@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://nfrogjy8c5uq"]
+
+[ext_resource type="Script" uid="uid://di5us7n2dri26" path="res://scripts/UI/StatusBar.cs" id="1_k20i6"]
+[ext_resource type="PackedScene" uid="uid://b05fmwnhfjjg7" path="res://scenes/item_slot.tscn" id="2_nhdpf"]
+
+[node name="StatusBar" type="Control" node_paths=PackedStringArray("playerCurrentToolItemSlot")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k20i6")
+playerCurrentToolItemSlot = NodePath("MarginContainer/HBoxContainer/ActiveToolItemSlot")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 5
+
+[node name="ActiveToolItemSlot" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_nhdpf")]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "Spring 1 (Sun)"
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "00:00"
+vertical_alignment = 1
