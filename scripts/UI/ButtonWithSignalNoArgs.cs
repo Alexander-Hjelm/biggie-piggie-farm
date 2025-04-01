@@ -1,7 +1,10 @@
 using Godot;
 
-public partial class ExitInventoryButton : Button
+public partial class ButtonWithSignalNoArgs : Button
 {
+    [Signal]
+    public delegate void OnClickEventHandler();
+
     public override void _Ready()
     {
         base._Ready();
@@ -10,6 +13,6 @@ public partial class ExitInventoryButton : Button
 
     private void OnClickCallback()
     {
-        InventoryManager._instance.ToggleInventory();
+        EmitSignal(SignalName.OnClick);
     }
 }

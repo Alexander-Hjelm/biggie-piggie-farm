@@ -96,7 +96,7 @@ public partial class Player : CharacterBody3D
 		// Open/Close inventory
 		if (Input.IsActionJustPressed("inventory"))
 		{
-			InventoryManager inventoryManager = InventoryManager._instance;
+			PlayerInventoryManager inventoryManager = PlayerInventoryManager.GetInstance();
 			inventoryManager.ToggleInventory();
 		}
 	}

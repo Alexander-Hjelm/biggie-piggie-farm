@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://b05fmwnhfjjg7"]
+[gd_scene load_steps=4 format=3 uid="uid://b05fmwnhfjjg7"]
 
 [ext_resource type="Script" uid="uid://b7ptamq2ic176" path="res://scripts/UI/ItemSlot.cs" id="1_eqbkm"]
 [ext_resource type="Texture2D" uid="uid://c75hm0a641rc4" path="res://img/textures/WateringCanTexture.tres" id="2_l0xgl"]
+[ext_resource type="Script" uid="uid://382wy6wxhvpc" path="res://scripts/UI/ButtonWithSignalNoArgs.cs" id="3_l0xgl"]
 
-[node name="ItemSlot" type="Control" node_paths=PackedStringArray("TextureRect")]
+[node name="ItemSlot" type="Control" node_paths=PackedStringArray("TextureRect", "Button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_eqbkm")
 TextureRect = NodePath("TextureRect")
+Button = NodePath("TextureRect/Button")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -19,3 +21,13 @@ offset_bottom = 64.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_l0xgl")
+
+[node name="Button" type="Button" parent="TextureRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_l0xgl")
