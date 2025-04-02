@@ -7,25 +7,34 @@ public partial class InventoryManager : Control
 	[Export] public Label ItemNameLabel { get; set; }
 	[Export] public RichTextLabel DescriptionLabel { get; set; }
 	[Export] public ButtonWithSignalNoArgs exitButton { get; set; }
-	[Export] public ItemResource[] Items = new ItemResource [32];
+	private Inventory _inventory;
     [Signal] public delegate void OnSlotClickEventHandler(ItemResource item);
 
-	private int _inventorySize = 32;
+	private static InventoryManager _instance;
+
+	public static InventoryManager GetInstance()
+	{
+		return _instance;
+	}
+
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+		if (_instance == null)
+		{
+			_instance = this;
+		}
+		else
+		{
+			GD.PrintErr("There are more than one InventoryManager instance in the scene. Make sure that there is only one.");
+		}
+    }
 
 	public override void _Ready()
 	{
 		base._Ready();
 		TabContainer.Visible = false;
 		RenderItemInfo(null);
-		
-		// Set up inventory slot onclick callbacks
-		for (int i = 0; i < _inventorySize; i++)
-		{
-			ItemSlot itemSlot = GridContainer.GetNode($"ItemSlot{i+1}") as ItemSlot;
-			itemSlot.OnClick += OnSlotClickCallback;
-			itemSlot.OnMouseEnter += OnSlotMouseEnterCallback;
-			itemSlot.OnMouseExit += OnSlotMouseExitCallback;
-		}
 
 		exitButton.OnClick += OnExitButtonClickCallback;
 	}
@@ -39,12 +48,26 @@ public partial class InventoryManager : Control
 		}
 	}
 
-	public void RenderInventory()
+	public void SetInventory(Inventory inventory)
 	{
-		for (int i = 0; i < _inventorySize; i++)
+		_inventory = inventory;
+
+		// Set up inventory slot onclick callbacks
+		for (int i = 0; i < _inventory.GetInventorySize(); i++)
 		{
 			ItemSlot itemSlot = GridContainer.GetNode($"ItemSlot{i+1}") as ItemSlot;
-			itemSlot.SetItem(Items[i]);
+			itemSlot.OnClick += OnSlotClickCallback;
+			itemSlot.OnMouseEnter += OnSlotMouseEnterCallback;
+			itemSlot.OnMouseExit += OnSlotMouseExitCallback;
+		}
+	}
+
+	public void RenderInventory()
+	{
+		for (int i = 0; i < _inventory.GetInventorySize(); i++)
+		{
+			ItemSlot itemSlot = GridContainer.GetNode($"ItemSlot{i+1}") as ItemSlot;
+			itemSlot.SetItem(_inventory.GetItem(i));
 		}
 	}
 

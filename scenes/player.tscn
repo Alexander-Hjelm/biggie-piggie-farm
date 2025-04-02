@@ -1,15 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://3hlh5vuckek0"]
+[gd_scene load_steps=10 format=3 uid="uid://3hlh5vuckek0"]
 
 [ext_resource type="Script" uid="uid://ck08yw3s1vuw1" path="res://scripts/Player.cs" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://cwhamxfoke0jr" path="res://fbx/FarmAnimals_v1.1/Pig.fbx" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://1ibkkb0oe3dn" path="res://scenes/actors/wings.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bf8n8rom37avg" path="res://scripts/PlayerInteraction.cs" id="4_dqkch"]
 [ext_resource type="PackedScene" uid="uid://fk81ycc4we00" path="res://scenes/highlight.tscn" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://dvu7y6e6spk7q" path="res://scripts/Inventory.cs" id="6_smehm"]
+[ext_resource type="Resource" uid="uid://b6jmw62lr08fn" path="res://resources/items/tools/Hoe.tres" id="7_ur7pv"]
+[ext_resource type="Resource" uid="uid://cuk3x8dx3d721" path="res://resources/items/tools/WateringCan.tres" id="8_y4r1p"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dqkch"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Inventory")]
 script = ExtResource("1_4flbx")
+Inventory = NodePath("Inventory")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -28,3 +32,7 @@ Highlight = ExtResource("5_qlg0r")
 
 [node name="RayCast3D" type="RayCast3D" parent="Interactor"]
 target_position = Vector3(0, -2, 0)
+
+[node name="Inventory" type="Node3D" parent="."]
+script = ExtResource("6_smehm")
+Items = [ExtResource("7_ur7pv"), ExtResource("8_y4r1p"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]

@@ -2,8 +2,6 @@ using Godot;
 
 public partial class PlayerInventoryManager : Control
 {
-    [Export] public InventoryManager inventoryManager { get; set; }
-
     private static PlayerInventoryManager _instance;
 
 	public static PlayerInventoryManager GetInstance()
@@ -27,12 +25,13 @@ public partial class PlayerInventoryManager : Control
 	    public override void _Ready()
     {
         base._Ready();
-        inventoryManager.OnSlotClick += OnSlotClickCallback;
+        InventoryManager.GetInstance().OnSlotClick += OnSlotClickCallback;
     }
 
     public void ToggleInventory()
 	{
-		inventoryManager.ToggleInventory();
+		InventoryManager.GetInstance().SetInventory(Player.GetInstance().Inventory);
+		InventoryManager.GetInstance().ToggleInventory();
 	}
 
 	public void OnSlotClickCallback(ItemResource item)

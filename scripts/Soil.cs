@@ -58,8 +58,6 @@ public partial class Soil : Node3D
 			|| IsInteractableForSoilType(SoilStatus.Tilled, ToolResource.Capability.WATER);
     }
 
-
-
     public void InteractCallback()
 	{
 		if (IsInteractableForSoilType(SoilStatus.Soil, ToolResource.Capability.TILL))

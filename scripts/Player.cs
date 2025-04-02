@@ -2,6 +2,7 @@ using Godot;
 
 public partial class Player : CharacterBody3D
 {
+	[Export] public Inventory Inventory { get; private set; }
 	// How fast the player moves in meters per second.
 	[Export] int Speed { get; set; } = 5;
 	[Export] public ToolResource CurrentTool { get; private set; }
@@ -29,11 +30,9 @@ public partial class Player : CharacterBody3D
 		}
     }
 
-
     public override void _Ready()
     {
         base._Ready();
-
 
 		// Ensure that the CurrentToolChanged signal is emitted on game start
 		if (CurrentTool != null)
