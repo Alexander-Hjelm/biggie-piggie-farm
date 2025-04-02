@@ -2,17 +2,11 @@ using Godot;
 
 public partial class ItemSlot : Control
 {
-    [Export]
-    public ButtonWithSignalNoArgs Button;
+    [Export] public ButtonWithSignalNoArgs Button;
 
-    [Signal]
-    public delegate void OnClickEventHandler(ItemResource item);
-
-    [Signal]
-    public delegate void OnMouseEnterEventHandler(ItemResource item);
-
-    [Signal]
-    public delegate void OnMouseExitEventHandler(ItemResource item);
+    [Signal] public delegate void OnClickEventHandler(ItemResource item);
+    [Signal] public delegate void OnMouseEnterEventHandler(ItemResource item);
+    [Signal] public delegate void OnMouseExitEventHandler(ItemResource item);
 
     private ItemResource _item;
 
@@ -46,7 +40,6 @@ public partial class ItemSlot : Control
 
     private void OnMouseEnterCallback()
     {
-        GD.Print("ItemSlot, OnMouseEnterCallback");
         EmitSignal(SignalName.OnMouseEnter, _item);
     }
 

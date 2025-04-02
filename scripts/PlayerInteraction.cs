@@ -5,9 +5,7 @@ namespace biggiepiggiefarm.scripts
 {
 	public partial class PlayerInteraction : Node3D
 	{
-
-		[Export]
-		public PackedScene Highlight { get; set; }
+		[Export] public PackedScene Highlight { get; set; }
 
 		private RayCast3D _rayCast3D;
 		private Node3D _highlightInstance;

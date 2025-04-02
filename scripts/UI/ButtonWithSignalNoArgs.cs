@@ -2,14 +2,11 @@ using Godot;
 
 public partial class ButtonWithSignalNoArgs : Button
 {
-    [Signal]
-    public delegate void OnClickEventHandler();
+    [Signal] public delegate void OnClickEventHandler();
 
-    [Signal]
-    public delegate void OnMouseEnterEventHandler();
+    [Signal] public delegate void OnMouseEnterEventHandler();
 
-    [Signal]
-    public delegate void OnMouseExitEventHandler();
+    [Signal] public delegate void OnMouseExitEventHandler();
 
     public override void _Ready()
     {

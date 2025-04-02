@@ -3,14 +3,10 @@ using Godot;
 public partial class Player : CharacterBody3D
 {
 	// How fast the player moves in meters per second.
-	[Export]
-	public int Speed { get; set; } = 5;
+	[Export] int Speed { get; set; } = 5;
+	[Export] public ToolResource CurrentTool { get; private set; }
 
-	[Export]
-	public ToolResource CurrentTool { get; private set; }
-
-	[Signal]
-    public delegate void CurrentToolChangedEventHandler(ToolResource tool);
+	[Signal] public delegate void CurrentToolChangedEventHandler(ToolResource tool);
 
 	private static Player _instance;
 	private Vector3 _targetVelocity = Vector3.Zero;

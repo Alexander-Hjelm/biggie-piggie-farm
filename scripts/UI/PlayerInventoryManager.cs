@@ -2,8 +2,7 @@ using Godot;
 
 public partial class PlayerInventoryManager : Control
 {
-    [Export]
-	public InventoryManager inventoryManager { get; set; }
+    [Export] public InventoryManager inventoryManager { get; set; }
 
     private static PlayerInventoryManager _instance;
 

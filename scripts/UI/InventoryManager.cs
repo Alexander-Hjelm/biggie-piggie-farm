@@ -2,26 +2,13 @@ using Godot;
 
 public partial class InventoryManager : Control
 {
-	[Export]
-	public TabContainer TabContainer { get; set; }
-
-	[Export]
-	public GridContainer GridContainer { get; set; }
-
-	[Export]
-	public Label ItemNameLabel { get; set; }
-
-	[Export]
-	public RichTextLabel DescriptionLabel { get; set; }
-
-	[Export]
-	public ButtonWithSignalNoArgs exitButton { get; set; }
-
-	[Export]
-	public ItemResource[] Items = new ItemResource [32];
-
-    [Signal]
-    public delegate void OnSlotClickEventHandler(ItemResource item);
+	[Export] public TabContainer TabContainer { get; set; }
+	[Export] public GridContainer GridContainer { get; set; }
+	[Export] public Label ItemNameLabel { get; set; }
+	[Export] public RichTextLabel DescriptionLabel { get; set; }
+	[Export] public ButtonWithSignalNoArgs exitButton { get; set; }
+	[Export] public ItemResource[] Items = new ItemResource [32];
+    [Signal] public delegate void OnSlotClickEventHandler(ItemResource item);
 
 	private int _inventorySize = 32;
 
@@ -82,7 +69,6 @@ public partial class InventoryManager : Control
 
 	public void OnSlotMouseEnterCallback(ItemResource item)
 	{
-		GD.Print("OnSlotMouseEnterCallback");
 		RenderItemInfo(item);
 	}
 

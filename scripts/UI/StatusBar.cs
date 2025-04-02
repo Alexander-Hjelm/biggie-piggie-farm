@@ -2,8 +2,7 @@ using Godot;
 
 public partial class StatusBar : Control
 {
-    [Export]
-    public ItemSlot playerCurrentToolItemSlot;
+    [Export] public ItemSlot playerCurrentToolItemSlot;
 
     public override void _Ready()
     {

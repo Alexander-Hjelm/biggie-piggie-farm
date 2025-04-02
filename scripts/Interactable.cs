@@ -2,8 +2,7 @@ using Godot;
 
 public partial class Interactable : Node3D
 {
-    [Signal]
-    public delegate void InteractedEventHandler();
+    [Signal] public delegate void InteractedEventHandler();
 
     private bool _isInteractable = false;
 

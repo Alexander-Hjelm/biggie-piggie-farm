@@ -10,27 +10,17 @@ public partial class Soil : Node3D
 		Watered
 	}
 
-	[Export]
-	public Material SoilMaterial { get; set; }
+	[Export] public Material SoilMaterial { get; set; }
+	[Export] public Material SoilTilledMaterial { get; set; }
+	[Export] public Material SoilWateredMaterial { get; set; }
+	[Export] private SoilStatus SoilStatusStart { get; set; }
+	[Export] private Interactable Interactable { get; set; }
 
-	[Export]
-	public Material SoilTilledMaterial { get; set; }
-
-	[Export]
-	public Material SoilWateredMaterial { get; set; }
-
-	[Export]
-	private SoilStatus SoilStatusStart { get; set; }
-
-	[Export]
-	private Interactable Interactable { get; set; }
+	[Signal] public delegate void IsInteractableChangedEventHandler(bool isInteractable);
 
 	private SoilStatus _soilStatus;
 	private Dictionary<SoilStatus, Material> _materialsLookup;
 	private CsgBox3D _box3d;
-
-	[Signal]
-    public delegate void IsInteractableChangedEventHandler(bool isInteractable);
 
 	public override void _Ready()
 	{
