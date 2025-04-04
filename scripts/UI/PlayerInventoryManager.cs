@@ -22,7 +22,7 @@ public partial class PlayerInventoryManager : Control
 		}
     }
 
-	    public override void _Ready()
+	public override void _Ready()
     {
         base._Ready();
         InventoryManager.GetInstance().OnSlotClick += OnSlotClickCallback;

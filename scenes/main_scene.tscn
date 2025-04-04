@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://0qg7fmv416xk"]
+[gd_scene load_steps=35 format=3 uid="uid://0qg7fmv416xk"]
 
 [ext_resource type="PackedScene" uid="uid://3hlh5vuckek0" path="res://scenes/player.tscn" id="1_0f027"]
 [ext_resource type="Environment" uid="uid://bl1p6ceaxbj8y" path="res://environments/main_environment.tres" id="2_2c62f"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://dbb3yclxxt8vw" path="res://scenes/soil.tscn" id="29_4bgka"]
 [ext_resource type="PackedScene" uid="uid://r2jql6erjfqq" path="res://scenes/inventory_menu.tscn" id="31_pgk25"]
 [ext_resource type="PackedScene" uid="uid://b3338gvhu6oee" path="res://scenes/gold_chest.tscn" id="33_lhwp2"]
+[ext_resource type="Script" uid="uid://bob82r32r5hn2" path="res://scripts/GameTimeManager.cs" id="34_l40q6"]
 
 [node name="MainScene" type="Node3D"]
 
@@ -476,3 +477,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, 4.5)
 
 [node name="Gold chest" parent="." instance=ExtResource("33_lhwp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521607, 0.0415406, -2.4846)
+
+[node name="GameTimeManager" type="Node3D" parent="." node_paths=PackedStringArray("timer")]
+script = ExtResource("34_l40q6")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="GameTimeManager"]
