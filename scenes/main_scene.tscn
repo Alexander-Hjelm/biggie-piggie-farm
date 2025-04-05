@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://0qg7fmv416xk"]
+[gd_scene load_steps=37 format=3 uid="uid://0qg7fmv416xk"]
 
 [ext_resource type="PackedScene" uid="uid://3hlh5vuckek0" path="res://scenes/player.tscn" id="1_0f027"]
 [ext_resource type="Environment" uid="uid://bl1p6ceaxbj8y" path="res://environments/main_environment.tres" id="2_2c62f"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cb4m240momnfj" path="res://scenes/actors/duck.tscn" id="5_18nlu"]
 [ext_resource type="PackedScene" uid="uid://ihkqvlu847hs" path="res://scenes/actors/sheep.tscn" id="6_c1pb6"]
 [ext_resource type="PackedScene" uid="uid://nfrogjy8c5uq" path="res://scenes/ui/status_bar.tscn" id="6_iav3h"]
+[ext_resource type="Script" uid="uid://uxr7hukhll7" path="res://scripts/Sun.cs" id="6_womr8"]
 [ext_resource type="PackedScene" uid="uid://co35dt8soxssc" path="res://scenes/environment/common_tree_3.tscn" id="7_k67gn"]
 [ext_resource type="PackedScene" uid="uid://cabag0j85wh8l" path="res://scenes/environment/common_tree_4.tscn" id="8_k3g67"]
 [ext_resource type="PackedScene" uid="uid://d3u7xpdfd5l3a" path="res://scenes/environment/common_tree_5.tscn" id="9_4bgka"]
@@ -34,6 +35,11 @@
 [ext_resource type="PackedScene" uid="uid://r2jql6erjfqq" path="res://scenes/inventory_menu.tscn" id="31_pgk25"]
 [ext_resource type="PackedScene" uid="uid://b3338gvhu6oee" path="res://scenes/gold_chest.tscn" id="33_lhwp2"]
 [ext_resource type="Script" uid="uid://bob82r32r5hn2" path="res://scripts/GameTimeManager.cs" id="34_l40q6"]
+
+[sub_resource type="Gradient" id="Gradient_iav3h"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.245211, 0.413793, 0.613027, 0.789272, 1)
+colors = PackedColorArray(0, 0, 0.415686, 1, 1, 0.792302, 0.499313, 1, 0.905994, 0.924138, 0.87615, 1, 0.881383, 0.899517, 0.837829, 1, 0.933333, 0.631373, 0.494118, 1, 0, 0, 0.415686, 1)
 
 [node name="MainScene" type="Node3D"]
 
@@ -63,11 +69,9 @@ projection = 1
 current = true
 fov = 53.0
 size = 10.0
+far = 200.0
 
 [node name="Environment" type="Node3D" parent="."]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = ExtResource("2_2c62f")
@@ -160,6 +164,17 @@ transform = Transform3D(0.232851, 0, 0.972512, 0, 1, 0, -0.972512, 0, 0.232851, 
 
 [node name="SheepWhite" parent="Environment/3D" instance=ExtResource("6_c1pb6")]
 transform = Transform3D(0.593686, 0, 0.804697, 0, 1, 0, -0.804697, 0, 0.593686, -2.53087, 0, 0)
+
+[node name="Sun" type="Node3D" parent="Environment" node_paths=PackedStringArray("directionalLight3D")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("6_womr8")
+directionalLight3D = NodePath("DirectionalLight3D")
+gradient = SubResource("Gradient_iav3h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/Sun"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+light_energy = 0.6
+shadow_enabled = true
 
 [node name="Soil" type="Node3D" parent="."]
 

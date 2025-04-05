@@ -5,6 +5,14 @@ public partial class GameTimeManager : Node3D
     [Export] public Timer timer;
     [Export] public float gameTimeScale = 1f;
 
+    [Signal] public delegate void OnTickEventHandler(
+        int year,
+        int season,
+        int day,
+        int hour,
+        int minute
+    );
+
     public GameTimeStamp gameTimeStamp;
     
     private static GameTimeManager _instance;
@@ -40,5 +48,13 @@ public partial class GameTimeManager : Node3D
     private void Tick()
     {
         gameTimeStamp.UpdateClock();
+        EmitSignal(
+            SignalName.OnTick,
+            gameTimeStamp.year,
+            (int)gameTimeStamp.season,
+            gameTimeStamp.day,
+            gameTimeStamp.hour,
+            gameTimeStamp.minute
+        );
     }
 }
