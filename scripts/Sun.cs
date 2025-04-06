@@ -12,15 +12,15 @@ public partial class Sun : Node3D
     {
         base._Ready();
         gameTimeStamp = GameTimeManager.GetInstance().gameTimeStamp;
+        directionalLight3D.RotationOrder = EulerOrder.Xyz;
     }
-
 
     public override void _Process(double delta)
     {
         base._Process(delta);
         float gameTimeInMinutes = (float)(GameTimeStamp.HoursToMinutes(gameTimeStamp.hour) + gameTimeStamp.minute);
         float newAngle = (float)(.25f * (float)gameTimeInMinutes * Math.PI / 180f) - (float)Math.PI;
-        directionalLight3D.Rotation = new Vector3(0, newAngle, 0);
+        directionalLight3D.Rotation = new Vector3(-15, newAngle, 0);
         directionalLight3D.LightColor = gradient.Sample(gameTimeInMinutes/(60f*24f));
     }
 }

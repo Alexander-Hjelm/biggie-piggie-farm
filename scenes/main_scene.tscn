@@ -166,13 +166,14 @@ transform = Transform3D(0.232851, 0, 0.972512, 0, 1, 0, -0.972512, 0, 0.232851, 
 transform = Transform3D(0.593686, 0, 0.804697, 0, 1, 0, -0.804697, 0, 0.593686, -2.53087, 0, 0)
 
 [node name="Sun" type="Node3D" parent="Environment" node_paths=PackedStringArray("directionalLight3D")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("6_womr8")
 directionalLight3D = NodePath("DirectionalLight3D")
 gradient = SubResource("Gradient_iav3h")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/Sun"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+rotation_order = 0
 light_energy = 0.6
 shadow_enabled = true
 
@@ -495,3 +496,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521607, 0.0415406, -2.4846
 
 [node name="GameTimeManager" type="Node3D" parent="."]
 script = ExtResource("34_l40q6")
+gameTimeScale = 50.0

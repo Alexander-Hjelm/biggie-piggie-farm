@@ -36,6 +36,5 @@ public partial class GameTimeManager : Node3D
     private void Tick(double delta)
     {
         gameTimeStamp.UpdateClock(delta);
-        GD.Print(gameTimeStamp);
     }
 }
