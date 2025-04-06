@@ -104,7 +104,7 @@ public class GameTimeStamp
 
     public string GetHourMinuteString()
     {
-        return  $"{hour.ToString().PadLeft(2,'0')}:{minute.ToString().PadLeft(2,'0')}";
+        return  $"{hour.ToString().PadLeft(2,'0')}:{((int)minute).ToString().PadLeft(2,'0')}";
     }
 
     public override string ToString()
