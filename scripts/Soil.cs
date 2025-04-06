@@ -22,6 +22,7 @@ public partial class Soil : Node3D
 	private Dictionary<SoilStatus, Material> _materialsLookup;
 	private CsgBox3D _box3d;
 	private GameTimeStamp _timeWatered;
+	private double _minutesUntilDry = 1440;
 
 	public override void _Ready()
 	{
@@ -61,7 +62,7 @@ public partial class Soil : Node3D
             if (GameTimeStamp.DifferenceInMinutes(
                 _timeWatered,
                 GameTimeManager.GetInstance().gameTimeStamp
-            ) > 10d)
+            ) > _minutesUntilDry)
             {
                 SetSoilStatus(SoilStatus.Tilled);
             }
