@@ -15,6 +15,9 @@ public partial class StatusBar : Control
         GameTimeManager.GetInstance().OnMinuteChanged += GameTimeMinuteChangedCallback;
         GameTimeManager.GetInstance().OnDayChanged += GameTimeDayChangedCallback;
         gameTimeStamp = GameTimeManager.GetInstance().gameTimeStamp;
+
+        GameTimeMinuteChangedCallback();
+        GameTimeDayChangedCallback();
     }
 
     private void CurrentToolChangedCallback(ToolResource tool)
@@ -29,6 +32,6 @@ public partial class StatusBar : Control
 
     private void GameTimeDayChangedCallback()
     {
-        dateLabel.Text = $"{gameTimeStamp.season}, Year {gameTimeStamp.year}\n({gameTimeStamp.GetDayOfTheWeek()})";
+        dateLabel.Text = $"{gameTimeStamp.season}, Year {gameTimeStamp.year}\nDay {gameTimeStamp.day} ({gameTimeStamp.GetDayOfTheWeek()})";
     }
 }
