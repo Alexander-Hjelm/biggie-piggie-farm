@@ -493,8 +493,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, 4.5)
 [node name="Gold chest" parent="." instance=ExtResource("33_lhwp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521607, 0.0415406, -2.4846)
 
-[node name="GameTimeManager" type="Node3D" parent="." node_paths=PackedStringArray("timer")]
+[node name="GameTimeManager" type="Node3D" parent="."]
 script = ExtResource("34_l40q6")
-timer = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="GameTimeManager"]

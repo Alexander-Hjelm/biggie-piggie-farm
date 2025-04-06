@@ -23,7 +23,7 @@ public class GameTimeStamp
 	public int year;
     public int day;
     public int hour;
-    public int minute;
+    public double minute;
 
     public GameTimeStamp(int year, Season season, int day, int hour, int minute)
     {
@@ -34,13 +34,13 @@ public class GameTimeStamp
         this.minute = minute;
     }
 
-    public void UpdateClock()
+    public void UpdateClock(double delta)
     {
-        minute++;
+        minute += delta;
 
-        if (minute >= 60)
+        if (minute >= 60d)
         {
-            minute = 0;
+            minute -= 60d;
             hour++;
         }
 
