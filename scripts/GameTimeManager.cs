@@ -4,6 +4,12 @@ public partial class GameTimeManager : Node3D
 {
     [Export] public float gameTimeScale = 1f;
 
+    [Signal] public delegate void OnYearChangedEventHandler();
+    [Signal] public delegate void OnSeasonChangedEventHandler();
+    [Signal] public delegate void OnDayChangedEventHandler();
+    [Signal] public delegate void OnHourChangedEventHandler();
+    [Signal] public delegate void OnMinuteChangedEventHandler();
+
     public GameTimeStamp gameTimeStamp;
     
     private static GameTimeManager _instance;
@@ -35,6 +41,26 @@ public partial class GameTimeManager : Node3D
 
     private void Tick(double delta)
     {
-        gameTimeStamp.UpdateClock(delta);
+        GameTimeStamp.TickOverDto tickOverDto = gameTimeStamp.UpdateClock(delta);
+        if (tickOverDto.yearChanged)
+        {
+            EmitSignal(SignalName.OnYearChanged);
+        }
+        if (tickOverDto.seasonChanged)
+        {
+            EmitSignal(SignalName.OnSeasonChanged);
+        }
+        if (tickOverDto.dayChanged)
+        {
+            EmitSignal(SignalName.OnDayChanged);
+        }
+        if (tickOverDto.hourChanged)
+        {
+            EmitSignal(SignalName.OnHourChanged);
+        }
+        if (tickOverDto.minuteChanged)
+        {
+            EmitSignal(SignalName.OnMinuteChanged);
+        }
     }
 }

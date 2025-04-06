@@ -496,4 +496,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521607, 0.0415406, -2.4846
 
 [node name="GameTimeManager" type="Node3D" parent="."]
 script = ExtResource("34_l40q6")
-gameTimeScale = 50.0

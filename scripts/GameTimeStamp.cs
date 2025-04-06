@@ -1,3 +1,5 @@
+using Godot;
+
 public class GameTimeStamp
 {
     public enum Season
@@ -19,11 +21,22 @@ public class GameTimeStamp
         Sunday
     }
 
+    [Signal] public delegate void OnMinuteChangedEventHandler();
+
     public Season season;
 	public int year;
     public int day;
     public int hour;
     public double minute;
+
+    public struct TickOverDto
+    {
+        public bool yearChanged;
+        public bool seasonChanged;
+        public bool dayChanged;
+        public bool hourChanged;
+        public bool minuteChanged;
+    }
 
     public GameTimeStamp(int year, Season season, int day, int hour, int minute)
     {
@@ -34,20 +47,28 @@ public class GameTimeStamp
         this.minute = minute;
     }
 
-    public void UpdateClock(double delta)
+    public TickOverDto UpdateClock(double delta)
     {
+        bool yearChanged = false;
+        bool seasonChanged = false;
+        bool dayChanged = false;
+        bool hourChanged = false;
+        bool minuteChanged = Mathf.Floor(minute) != Mathf.Floor(minute + delta);
+
         minute += delta;
 
         if (minute >= 60d)
         {
             minute -= 60d;
             hour++;
+            hourChanged = true;
         }
 
         if(hour >= 24)
         {
             hour = 0;
             day++;
+            dayChanged = true;
         }
 
         if(day > 30)
@@ -57,12 +78,23 @@ public class GameTimeStamp
             {
                 season = Season.Spring;
                 year++;
+                yearChanged = true;
             }
             else
             {
                 season++;
+                seasonChanged = true;
             }
         }
+
+        return new TickOverDto()
+        {
+            yearChanged = yearChanged,
+            seasonChanged = seasonChanged,
+            dayChanged = dayChanged,
+            hourChanged = hourChanged,
+            minuteChanged = minuteChanged
+        };
     }
 
     public DayOfTheWeek GetDayOfTheWeek()
