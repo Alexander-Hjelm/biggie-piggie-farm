@@ -21,6 +21,7 @@ public partial class Soil : Node3D
 	private SoilStatus _soilStatus;
 	private Dictionary<SoilStatus, Material> _materialsLookup;
 	private CsgBox3D _box3d;
+	private GameTimeStamp _timeWatered;
 
 	public override void _Ready()
 	{
@@ -41,17 +42,33 @@ public partial class Soil : Node3D
 		IsInteractableChanged += Interactable.SetIsInteractable;
 	}
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
     {
-        base._PhysicsProcess(delta);
-		bool interactable = EvalIsInteractable();
-		if(interactable != Interactable.IsInteractable())
-		{
-			EmitSignal(SignalName.IsInteractableChanged, interactable);
-		}
+        base._Process(delta);
+        bool interactable = EvalIsInteractable();
+        if (interactable != Interactable.IsInteractable())
+        {
+            EmitSignal(SignalName.IsInteractableChanged, interactable);
+        }
+
+        CheckWatered();
     }
 
-	public bool EvalIsInteractable()
+    private void CheckWatered()
+    {
+        if (_soilStatus == SoilStatus.Watered)
+        {
+            if (GameTimeStamp.DifferenceInMinutes(
+                _timeWatered,
+                GameTimeManager.GetInstance().gameTimeStamp
+            ) > 10d)
+            {
+                SetSoilStatus(SoilStatus.Tilled);
+            }
+        }
+    }
+
+    public bool EvalIsInteractable()
     {
         return
 			IsInteractableForSoilType(SoilStatus.Soil, ToolResource.Capability.TILL)
@@ -67,6 +84,7 @@ public partial class Soil : Node3D
 		else if (IsInteractableForSoilType(SoilStatus.Tilled, ToolResource.Capability.WATER))
 		{
 			SetSoilStatus(SoilStatus.Watered);
+			_timeWatered = GameTimeManager.GetInstance().gameTimeStamp.Clone();
 		}
 	}
 
