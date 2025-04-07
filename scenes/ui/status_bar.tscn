@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://di5us7n2dri26" path="res://scripts/UI/StatusBar.cs" id="1_k20i6"]
 [ext_resource type="PackedScene" uid="uid://b05fmwnhfjjg7" path="res://scenes/item_slot.tscn" id="2_nhdpf"]
 
-[node name="StatusBar" type="Control" node_paths=PackedStringArray("playerCurrentToolItemSlot", "dateLabel", "timeLabel")]
+[node name="StatusBar" type="Control" node_paths=PackedStringArray("playerCurrentItemItemSlot", "dateLabel", "timeLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k20i6")
-playerCurrentToolItemSlot = NodePath("MarginContainer/HBoxContainer/ActiveToolItemSlot")
+playerCurrentItemItemSlot = NodePath("MarginContainer/HBoxContainer/ActiveToolItemSlot")
 dateLabel = NodePath("MarginContainer/HBoxContainer/DateLabel")
 timeLabel = NodePath("MarginContainer/HBoxContainer/TimeLabel")
 

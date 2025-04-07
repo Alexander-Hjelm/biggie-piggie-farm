@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b05fmwnhfjjg7"]
+[gd_scene load_steps=3 format=3 uid="uid://b05fmwnhfjjg7"]
 
 [ext_resource type="Script" uid="uid://b7ptamq2ic176" path="res://scripts/UI/ItemSlot.cs" id="1_eqbkm"]
-[ext_resource type="Texture2D" uid="uid://c75hm0a641rc4" path="res://img/textures/WateringCanTexture.tres" id="2_l0xgl"]
 [ext_resource type="Script" uid="uid://382wy6wxhvpc" path="res://scripts/UI/ButtonWithSignalNoArgs.cs" id="3_l0xgl"]
 
 [node name="ItemSlot" type="Control" node_paths=PackedStringArray("Button")]
@@ -29,7 +28,6 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
 offset_right = 24.0
 offset_bottom = 24.0
-icon = ExtResource("2_l0xgl")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("3_l0xgl")

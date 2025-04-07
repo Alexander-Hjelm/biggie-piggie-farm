@@ -5,9 +5,9 @@ public partial class Player : CharacterBody3D
 	[Export] public Inventory Inventory { get; private set; }
 	// How fast the player moves in meters per second.
 	[Export] int Speed { get; set; } = 5;
-	[Export] public ToolResource CurrentTool { get; private set; }
+	[Export] public ItemResource CurrentItem { get; private set; }
 
-	[Signal] public delegate void CurrentToolChangedEventHandler(ToolResource tool);
+	[Signal] public delegate void CurrentItemChangedEventHandler(ItemResource item);
 
 	private static Player _instance;
 	private Vector3 _targetVelocity = Vector3.Zero;
@@ -35,9 +35,9 @@ public partial class Player : CharacterBody3D
         base._Ready();
 
 		// Ensure that the CurrentToolChanged signal is emitted on game start
-		if (CurrentTool != null)
+		if (CurrentItem != null)
 		{
-			SetCurrentTool(CurrentTool);
+			SetCurrentItem(CurrentItem);
 		}
     }
 
@@ -96,9 +96,9 @@ public partial class Player : CharacterBody3D
 		}
 	}
 
-	public void SetCurrentTool(ToolResource tool)
+	public void SetCurrentItem(ItemResource item)
 	{
-		CurrentTool = tool;
-		EmitSignal(SignalName.CurrentToolChanged, tool);
+		CurrentItem = item;
+		EmitSignal(SignalName.CurrentItemChanged, item);
 	}
 }

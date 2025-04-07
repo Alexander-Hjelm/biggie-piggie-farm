@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://yhs8k61dyuog"]
+
+[ext_resource type="PackedScene" uid="uid://cpl1iqv5x4wvr" path="res://fbx/Ultimate Nature Pack by Quaternius/Wheat.fbx" id="1_erj63"]
+
+[node name="WheatStage4" type="Node3D"]
+
+[node name="Wheat" parent="." instance=ExtResource("1_erj63")]

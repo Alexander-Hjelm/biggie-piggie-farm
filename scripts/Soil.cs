@@ -22,7 +22,12 @@ public partial class Soil : Node3D
 	private Dictionary<SoilStatus, Material> _materialsLookup;
 	private CsgBox3D _box3d;
 	private GameTimeStamp _timeWatered;
+	private SeedResource _plantedSeedResource;
+	private Node3D _currentCropScene;
 	private double _minutesUntilDry = 1440;
+	private double _minutesGrown = 0;
+	private double _minutesGrownForStateChange = 2;
+	private int _currentCropStage = -1;
 
 	public override void _Ready()
 	{
@@ -52,10 +57,18 @@ public partial class Soil : Node3D
             EmitSignal(SignalName.IsInteractableChanged, interactable);
         }
 
-        CheckWatered();
+        CheckWatered(delta);
+
+		if(_minutesGrown >= _minutesGrownForStateChange
+			&& _currentCropStage < _plantedSeedResource.Stages.Count - 1)
+		{
+			_currentCropStage += 1;
+			ChangeCropScene(_currentCropStage);
+			_minutesGrown = 0;
+		}
     }
 
-    private void CheckWatered()
+    private void CheckWatered(double delta)
     {
         if (_soilStatus == SoilStatus.Watered)
         {
@@ -66,6 +79,7 @@ public partial class Soil : Node3D
             {
                 SetSoilStatus(SoilStatus.Tilled);
             }
+			_minutesGrown += delta;
         }
     }
 
@@ -73,7 +87,8 @@ public partial class Soil : Node3D
     {
         return
 			IsInteractableForSoilType(SoilStatus.Soil, ToolResource.Capability.TILL)
-			|| IsInteractableForSoilType(SoilStatus.Tilled, ToolResource.Capability.WATER);
+			|| IsInteractableForSoilType(SoilStatus.Tilled, ToolResource.Capability.WATER)
+			|| IsInteractablePlayerHoldingSeed();
     }
 
     public void InteractCallback()
@@ -87,17 +102,47 @@ public partial class Soil : Node3D
 			SetSoilStatus(SoilStatus.Watered);
 			_timeWatered = GameTimeManager.GetInstance().gameTimeStamp.Clone();
 		}
+		else if (IsInteractablePlayerHoldingSeed())
+		{
+			PlantSeed(Player.GetInstance().CurrentItem as SeedResource);
+		}
 	}
 
 	private bool IsInteractableForSoilType(SoilStatus soilStatus, ToolResource.Capability capability)
     {
-        return _soilStatus == soilStatus
-			&& Player.GetInstance().CurrentTool.Capabilities.Contains(capability);
+		ToolResource currentTool = Player.GetInstance().CurrentItem as ToolResource;
+        return currentTool != null
+			&& _soilStatus == soilStatus
+			&& currentTool.Capabilities.Contains(capability);
+    }
+
+	private bool IsInteractablePlayerHoldingSeed()
+    {
+        return (_soilStatus == SoilStatus.Tilled || _soilStatus == SoilStatus.Watered)
+			&& Player.GetInstance().CurrentItem as SeedResource != null;
     }
 
 	public void SetSoilStatus(SoilStatus soilStatus)
 	{
 		_soilStatus = soilStatus;
 		_box3d.Material = _materialsLookup[soilStatus];
+	}
+
+	private void PlantSeed(SeedResource seedResource)
+	{
+		_plantedSeedResource = seedResource;
+		_currentCropStage = 0;
+		ChangeCropScene(0);
+	}
+
+	private void ChangeCropScene(int cropStateIndex)
+	{
+		if(_currentCropScene != null)
+		{
+			_currentCropScene.QueueFree();
+		}
+		_currentCropScene = _plantedSeedResource.Stages[cropStateIndex].Instantiate() as Node3D;
+		AddChild(_currentCropScene);
+		_currentCropScene.Position += new Vector3(0f, .5f, 0f);
 	}
 }

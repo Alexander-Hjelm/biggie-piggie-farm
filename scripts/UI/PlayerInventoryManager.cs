@@ -36,9 +36,6 @@ public partial class PlayerInventoryManager : Control
 
 	public void OnSlotClickCallback(ItemResource item)
 	{
-		if (item is ToolResource)
-		{
-			Player.GetInstance().SetCurrentTool(item as ToolResource);
-		}
+		Player.GetInstance().SetCurrentItem(item);
 	}
 }

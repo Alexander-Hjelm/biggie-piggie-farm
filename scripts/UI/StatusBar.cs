@@ -2,7 +2,7 @@ using Godot;
 
 public partial class StatusBar : Control
 {
-    [Export] public ItemSlot playerCurrentToolItemSlot;
+    [Export] public ItemSlot playerCurrentItemItemSlot;
     [Export] public Label dateLabel;
     [Export] public Label timeLabel;
 
@@ -11,7 +11,7 @@ public partial class StatusBar : Control
     public override void _Ready()
     {
         base._Ready();
-        Player.GetInstance().CurrentToolChanged += CurrentToolChangedCallback;
+        Player.GetInstance().CurrentItemChanged += CurrentItemChangedCallback;
         GameTimeManager.GetInstance().OnMinuteChanged += GameTimeMinuteChangedCallback;
         GameTimeManager.GetInstance().OnDayChanged += GameTimeDayChangedCallback;
         gameTimeStamp = GameTimeManager.GetInstance().gameTimeStamp;
@@ -20,9 +20,9 @@ public partial class StatusBar : Control
         GameTimeDayChangedCallback();
     }
 
-    private void CurrentToolChangedCallback(ToolResource tool)
+    private void CurrentItemChangedCallback(ItemResource item)
     {
-        playerCurrentToolItemSlot.SetItem(tool);
+        playerCurrentItemItemSlot.SetItem(item);
     }
 
     private void GameTimeMinuteChangedCallback()
