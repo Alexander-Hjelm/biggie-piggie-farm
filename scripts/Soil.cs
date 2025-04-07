@@ -59,7 +59,8 @@ public partial class Soil : Node3D
 
         CheckWatered(delta);
 
-		if(_minutesGrown >= _minutesGrownForStateChange
+		if(_plantedSeedResource != null
+			&& _minutesGrown >= _minutesGrownForStateChange
 			&& _currentCropStage < _plantedSeedResource.Stages.Count - 1)
 		{
 			_currentCropStage += 1;
@@ -88,12 +89,17 @@ public partial class Soil : Node3D
         return
 			IsInteractableForSoilType(SoilStatus.Soil, ToolResource.Capability.TILL)
 			|| IsInteractableForSoilType(SoilStatus.Tilled, ToolResource.Capability.WATER)
-			|| IsInteractablePlayerHoldingSeed();
+			|| IsInteractablePlayerHoldingSeed()
+			|| IsInteractableHarvestable();
     }
 
     public void InteractCallback()
 	{
-		if (IsInteractableForSoilType(SoilStatus.Soil, ToolResource.Capability.TILL))
+		if (IsInteractableHarvestable())
+		{
+			HarvestCrop();
+		}
+		else if (IsInteractableForSoilType(SoilStatus.Soil, ToolResource.Capability.TILL))
 		{
 			SetSoilStatus(SoilStatus.Tilled);
 		}
@@ -119,8 +125,14 @@ public partial class Soil : Node3D
 	private bool IsInteractablePlayerHoldingSeed()
     {
         return (_soilStatus == SoilStatus.Tilled || _soilStatus == SoilStatus.Watered)
+			&& _plantedSeedResource == null
 			&& Player.GetInstance().CurrentItem as SeedResource != null;
     }
+
+	private bool IsInteractableHarvestable()
+	{
+		return _plantedSeedResource != null && _currentCropStage == _plantedSeedResource.Stages.Count - 1;
+	}
 
 	public void SetSoilStatus(SoilStatus soilStatus)
 	{
@@ -132,17 +144,30 @@ public partial class Soil : Node3D
 	{
 		_plantedSeedResource = seedResource;
 		_currentCropStage = 0;
+		_minutesGrown = 0;
 		ChangeCropScene(0);
 	}
 
 	private void ChangeCropScene(int cropStateIndex)
 	{
-		if(_currentCropScene != null)
+		if(_currentCropScene != null && IsInstanceValid(_currentCropScene))
 		{
 			_currentCropScene.QueueFree();
 		}
-		_currentCropScene = _plantedSeedResource.Stages[cropStateIndex].Instantiate() as Node3D;
-		AddChild(_currentCropScene);
-		_currentCropScene.Position += new Vector3(0f, .5f, 0f);
+		if (cropStateIndex > -1)
+		{
+			_currentCropScene = _plantedSeedResource.Stages[cropStateIndex].Instantiate() as Node3D;
+			AddChild(_currentCropScene);
+			_currentCropScene.Position += new Vector3(0f, .5f, 0f);
+		}
+	}
+
+	private void HarvestCrop()
+	{
+		InventoryManager.GetInstance().AddItem(_plantedSeedResource.CropToYield);
+		_currentCropStage = -1;
+		_plantedSeedResource = null;
+		ChangeCropScene(-1);
+		_currentCropScene = null;
 	}
 }

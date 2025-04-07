@@ -85,6 +85,12 @@ public partial class InventoryManager : Control
 		}
 	}
 
+	public void AddItem(ItemResource itemResource)
+	{
+		_inventory.AddItem(itemResource);
+		RenderInventory();
+	}
+
 	public void OnSlotClickCallback(ItemResource item)
 	{
 		EmitSignal(SignalName.OnSlotClick, item);

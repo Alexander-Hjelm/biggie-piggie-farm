@@ -1,3 +1,4 @@
+using System.Linq;
 using Godot;
 
 public partial class Inventory : Node3D
@@ -15,4 +16,16 @@ public partial class Inventory : Node3D
     {
         return Items[i];
     }
+
+    public void AddItem(ItemResource itemResource)
+	{
+		for (int i = 0; i < Items.Length; i++)
+        {
+            if (Items[i] == null)
+            {
+                Items[i] = itemResource;
+                break;
+            }
+        }
+	}
 }

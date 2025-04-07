@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3hlh5vuckek0"]
+[gd_scene load_steps=12 format=3 uid="uid://3hlh5vuckek0"]
 
 [ext_resource type="Script" uid="uid://ck08yw3s1vuw1" path="res://scripts/Player.cs" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://cwhamxfoke0jr" path="res://fbx/FarmAnimals_v1.1/Pig.fbx" id="2_g2els"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://dvu7y6e6spk7q" path="res://scripts/Inventory.cs" id="6_smehm"]
 [ext_resource type="Resource" uid="uid://b6jmw62lr08fn" path="res://resources/items/tools/Hoe.tres" id="7_ur7pv"]
 [ext_resource type="Resource" uid="uid://cuk3x8dx3d721" path="res://resources/items/tools/WateringCan.tres" id="8_y4r1p"]
+[ext_resource type="Resource" uid="uid://c6u2vay75ngpw" path="res://resources/items/seeds/WheatSeed.tres" id="9_y4r1p"]
+[ext_resource type="Resource" uid="uid://l72elbkkbr55" path="res://resources/items/Wheat.tres" id="10_d2wvv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dqkch"]
 
@@ -35,4 +37,4 @@ target_position = Vector3(0, -2, 0)
 
 [node name="Inventory" type="Node3D" parent="."]
 script = ExtResource("6_smehm")
-Items = [ExtResource("7_ur7pv"), ExtResource("8_y4r1p"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+Items = [ExtResource("7_ur7pv"), ExtResource("8_y4r1p"), ExtResource("9_y4r1p"), ExtResource("10_d2wvv"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
