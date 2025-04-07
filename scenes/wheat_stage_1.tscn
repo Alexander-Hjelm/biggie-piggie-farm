@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdglfhfp0vc2r"]
+
+[ext_resource type="PackedScene" uid="uid://cqqrmgmdh5qga" path="res://scenes/seed.tscn" id="1_5xpbp"]
+
+[node name="WheatStage1" type="Node3D"]
+
+[node name="Rock_5" parent="." instance=ExtResource("1_5xpbp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

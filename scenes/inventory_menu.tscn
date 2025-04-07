@@ -1,0 +1,207 @@
+[gd_scene load_steps=6 format=3 uid="uid://r2jql6erjfqq"]
+
+[ext_resource type="Script" uid="uid://dnmcxxf0eksih" path="res://scripts/UI/InventoryManager.cs" id="1_764yi"]
+[ext_resource type="Theme" uid="uid://c2g7dnhva1bga" path="res://ui/ui_theme.tres" id="1_xh5dw"]
+[ext_resource type="PackedScene" uid="uid://b05fmwnhfjjg7" path="res://scenes/item_slot.tscn" id="3_764yi"]
+[ext_resource type="Script" uid="uid://382wy6wxhvpc" path="res://scripts/UI/ButtonWithSignalNoArgs.cs" id="3_lti00"]
+[ext_resource type="Script" uid="uid://6gkqwscgmlxg" path="res://scripts/UI/PlayerInventoryManager.cs" id="5_lti00"]
+
+[node name="InventoryMenuControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 51.0
+offset_top = 39.0
+offset_right = 1057.0
+offset_bottom = 571.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Inventory" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Inventory/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Inventory/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_xh5dw")
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 64
+text = "Inventory"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 8
+
+[node name="ItemSlot1" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot2" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot3" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot4" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot5" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot6" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot7" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot8" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot9" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot10" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot11" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot12" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot13" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot14" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot15" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot16" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot17" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot18" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot19" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot20" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot21" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot22" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot23" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot24" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot25" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot26" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot27" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot28" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot29" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot30" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot31" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="ItemSlot32" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("3_764yi")]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+script = ExtResource("3_lti00")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Inventory/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ItemNameLabel" type="Label" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_xh5dw")
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 52
+text = "<placeholder>"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="IItemDescriptionLabel" type="RichTextLabel" parent="TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "<placeholder>"
+fit_content = true
+
+[node name="PlayerInventoryManager" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_lti00")
+
+[node name="InventoryManager" type="Control" parent="." node_paths=PackedStringArray("TabContainer", "GridContainer", "ItemNameLabel", "DescriptionLabel", "exitButton")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_764yi")
+TabContainer = NodePath("../TabContainer")
+GridContainer = NodePath("../TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/GridContainer")
+ItemNameLabel = NodePath("../TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer2/ItemNameLabel")
+DescriptionLabel = NodePath("../TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer2/IItemDescriptionLabel")
+exitButton = NodePath("../TabContainer/Inventory/MarginContainer/HBoxContainer/VBoxContainer/ExitButton")

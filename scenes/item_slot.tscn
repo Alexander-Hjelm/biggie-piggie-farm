@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b05fmwnhfjjg7"]
+
+[ext_resource type="Script" uid="uid://b7ptamq2ic176" path="res://scripts/UI/ItemSlot.cs" id="1_eqbkm"]
+[ext_resource type="Script" uid="uid://382wy6wxhvpc" path="res://scripts/UI/ButtonWithSignalNoArgs.cs" id="3_l0xgl"]
+
+[node name="ItemSlot" type="Control" node_paths=PackedStringArray("Button")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_eqbkm")
+Button = NodePath("Button")
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+offset_right = 24.0
+offset_bottom = 24.0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_l0xgl")

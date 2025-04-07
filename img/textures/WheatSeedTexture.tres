@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bxo1axweicd50"]
+
+[ext_resource type="Texture2D" uid="uid://bl43xtc0spx6h" path="res://fbx/gardens-16x16-icon-pack/all the icons (gardens).png" id="1_wmce3"]
+
+[resource]
+atlas = ExtResource("1_wmce3")
+region = Rect2(96, 96, 16, 16)

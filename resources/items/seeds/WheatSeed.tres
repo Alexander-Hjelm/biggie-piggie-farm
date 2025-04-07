@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SeedResource" load_steps=8 format=3 uid="uid://c6u2vay75ngpw"]
+
+[ext_resource type="Resource" uid="uid://l72elbkkbr55" path="res://resources/items/Wheat.tres" id="1_4gewn"]
+[ext_resource type="Script" uid="uid://cipkvrbgsn2t3" path="res://scripts/Resources/SeedResource.cs" id="1_ny74t"]
+[ext_resource type="Texture2D" uid="uid://bxo1axweicd50" path="res://img/textures/WheatSeedTexture.tres" id="1_xhp48"]
+[ext_resource type="PackedScene" uid="uid://bdglfhfp0vc2r" path="res://scenes/wheat_stage_1.tscn" id="3_50mq7"]
+[ext_resource type="PackedScene" uid="uid://sfu57t2wxkgw" path="res://scenes/wheat_stage_2.tscn" id="4_nlk24"]
+[ext_resource type="PackedScene" uid="uid://bc1wmtgqla2o3" path="res://scenes/wheat_stage_3.tscn" id="5_0v8sw"]
+[ext_resource type="PackedScene" uid="uid://yhs8k61dyuog" path="res://scenes/wheat_stage_4.tscn" id="6_nlk24"]
+
+[resource]
+script = ExtResource("1_ny74t")
+CropToYield = ExtResource("1_4gewn")
+DaysToGrow = 1
+Stages = Array[PackedScene]([ExtResource("3_50mq7"), ExtResource("4_nlk24"), ExtResource("5_0v8sw"), ExtResource("6_nlk24")])
+Name = "Wheat Seed"
+Description = "Grows a Wheat plant"
+Cost = 5
+Icon = ExtResource("1_xhp48")
+metadata/_custom_type_script = "uid://cipkvrbgsn2t3"

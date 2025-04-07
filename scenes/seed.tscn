@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqqrmgmdh5qga"]
+
+[ext_resource type="PackedScene" uid="uid://b1dtptyt6dbpf" path="res://fbx/Ultimate Nature Pack by Quaternius/Rock_5.fbx" id="1_m0bgt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mtvd"]
+albedo_color = Color(0.13767, 0.108814, 0.0127076, 1)
+
+[node name="Rock_5" instance=ExtResource("1_m0bgt")]
+
+[node name="Rock_5" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_6mtvd")

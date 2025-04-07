@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3338gvhu6oee"]
+
+[ext_resource type="PackedScene" uid="uid://d3o2rkcrmni8o" path="res://fbx/Chest/Chests/Gold chest.fbx" id="1_oj5j5"]
+[ext_resource type="Script" uid="uid://dav36pcfrrlf" path="res://scripts/Container.cs" id="2_8gyvf"]
+[ext_resource type="Material" uid="uid://cs32lrdkn3ksu" path="res://materials/gold_chest.tres" id="2_pi62n"]
+[ext_resource type="Script" uid="uid://ceskeh4apmwq2" path="res://scripts/Interactable.cs" id="3_pi62n"]
+[ext_resource type="Script" uid="uid://dvu7y6e6spk7q" path="res://scripts/Inventory.cs" id="5_1noaq"]
+[ext_resource type="Resource" uid="uid://c6u2vay75ngpw" path="res://resources/items/seeds/WheatSeed.tres" id="6_gi6q4"]
+[ext_resource type="Resource" uid="uid://l72elbkkbr55" path="res://resources/items/Wheat.tres" id="7_47voh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oj5j5"]
+size = Vector3(0.806641, 0.664307, 0.584229)
+
+[node name="Gold chest" node_paths=PackedStringArray("Interactable", "Inventory") groups=["interactable"] instance=ExtResource("1_oj5j5")]
+script = ExtResource("2_8gyvf")
+Interactable = NodePath("Interactable")
+Inventory = NodePath("Inventory")
+
+[node name="Armature Gold chest" parent="." index="0"]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -1.28007e-16, 0.00731094, -0.114842)
+
+[node name="Skeleton3D" parent="Armature Gold chest" index="0"]
+bones/1/rotation = Quaternion(0.264097, 1.14977e-07, 3.14828e-08, 0.964496)
+bones/2/position = Vector3(0.000214863, 0.0144231, 0.0240898)
+bones/2/rotation = Quaternion(0.548352, 0.570288, 0.429267, -0.435675)
+bones/3/position = Vector3(-0.000239348, 0.0142767, 0.0241764)
+
+[node name="Gold Chest" parent="Armature Gold chest/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0, 0.00557055, 2.32831e-10)
+material_override = ExtResource("2_pi62n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000976563, 0.237882, -0.00410557)
+shape = SubResource("BoxShape3D_oj5j5")
+
+[node name="Interactable" type="Node3D" parent="." index="3"]
+script = ExtResource("3_pi62n")
+
+[node name="Inventory" type="Node3D" parent="." index="4"]
+script = ExtResource("5_1noaq")
+Items = [ExtResource("6_gi6q4"), ExtResource("6_gi6q4"), ExtResource("6_gi6q4"), ExtResource("7_47voh"), ExtResource("7_47voh"), ExtResource("7_47voh"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ToolResource" load_steps=3 format=3 uid="uid://cuk3x8dx3d721"]
+
+[ext_resource type="Texture2D" uid="uid://c75hm0a641rc4" path="res://img/textures/WateringCanTexture.tres" id="1_7wyp7"]
+[ext_resource type="Script" uid="uid://b101kw8e8raic" path="res://scripts/ToolResource.cs" id="2_7wyp7"]
+
+[resource]
+script = ExtResource("2_7wyp7")
+Capabilities = Array[int]([1])
+Name = "Watering Can"
+Description = "Used to water plants"
+Cost = 100
+Icon = ExtResource("1_7wyp7")
+metadata/_custom_type_script = "uid://bbhofpjfxhcqy"

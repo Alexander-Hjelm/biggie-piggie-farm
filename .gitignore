@@ -386,3 +386,10 @@ $RECYCLE.BIN/
 *.msp
 *.lnk
 *.generated.props
+
+
+# Custom
+.godot/editor
+.godot/imported
+.godot/uid_cache.bin
+.godot/mono
