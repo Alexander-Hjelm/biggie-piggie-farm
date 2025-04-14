@@ -63,7 +63,7 @@ public partial class Soil : Node3D
 			&& _minutesGrown >= _minutesGrownForStateChange
 			&& _currentCropStage < _plantedSeedResource.Stages.Count - 1)
 		{
-			_currentCropStage += 1;
+			_currentCropStage += _plantedSeedResource.Stages[_currentCropStage].StepsToAdvance;
 			ChangeCropScene(_currentCropStage);
 			_minutesGrown = 0;
 		}
@@ -156,7 +156,7 @@ public partial class Soil : Node3D
 		}
 		if (cropStateIndex > -1)
 		{
-			_currentCropScene = _plantedSeedResource.Stages[cropStateIndex].Instantiate() as Node3D;
+			_currentCropScene = _plantedSeedResource.Stages[cropStateIndex].Scene.Instantiate() as Node3D;
 			AddChild(_currentCropScene);
 			_currentCropScene.Position += new Vector3(0f, .5f, 0f);
 		}
@@ -165,9 +165,19 @@ public partial class Soil : Node3D
 	private void HarvestCrop()
 	{
 		InventoryManager.GetInstance().AddItem(_plantedSeedResource.CropToYield);
-		_currentCropStage = -1;
-		_plantedSeedResource = null;
-		ChangeCropScene(-1);
-		_currentCropScene = null;
+		_minutesGrown = 0;
+		if (_plantedSeedResource.Stages[_currentCropStage].StepsToAdvance >= 0)
+		{
+			_currentCropStage = -1;
+			_plantedSeedResource = null;
+			ChangeCropScene(-1);
+			_currentCropScene = null;
+		}
+		else
+		{
+			int newStage = _plantedSeedResource.Stages[_currentCropStage].StepsToAdvance;
+			_currentCropStage += newStage;
+			ChangeCropScene(_currentCropStage);
+		}
 	}
 }
