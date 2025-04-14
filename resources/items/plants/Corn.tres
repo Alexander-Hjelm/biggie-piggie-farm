@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cqead357uamfx"]
+
+[ext_resource type="Texture2D" uid="uid://bcd7guodr047" path="res://img/textures/CornTexture.tres" id="1_8ho2v"]
+[ext_resource type="Script" uid="uid://bbhofpjfxhcqy" path="res://scripts/Resources/ItemResource.cs" id="2_8y4kg"]
+
+[resource]
+script = ExtResource("2_8y4kg")
+Name = "Corn"
+Description = "The great cornholio"
+Cost = 0
+Icon = ExtResource("1_8ho2v")
+metadata/_custom_type_script = "uid://bbhofpjfxhcqy"

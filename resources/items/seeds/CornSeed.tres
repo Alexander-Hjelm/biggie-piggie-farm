@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SeedResource" load_steps=9 format=3 uid="uid://b4rtrks7h1pck"]
+
+[ext_resource type="Resource" uid="uid://cqead357uamfx" path="res://resources/items/plants/Corn.tres" id="1_kiseq"]
+[ext_resource type="Texture2D" uid="uid://bhnammn3k3nd" path="res://img/textures/CornSeedTexture.tres" id="2_a7v3y"]
+[ext_resource type="PackedScene" uid="uid://bmjix805k3m0n" path="res://scenes/corn_stage_1.tscn" id="3_kiseq"]
+[ext_resource type="PackedScene" uid="uid://b5o0c1j8464k" path="res://scenes/corn_stage_2.tscn" id="4_gwq4h"]
+[ext_resource type="PackedScene" uid="uid://bwgqmdtad8apd" path="res://scenes/corn_stage_3.tscn" id="5_i5wl0"]
+[ext_resource type="PackedScene" uid="uid://dgi5n7ypcscae" path="res://scenes/corn_stage_4.tscn" id="6_p3pbk"]
+[ext_resource type="PackedScene" uid="uid://wsv21snockca" path="res://scenes/corn_stage_5.tscn" id="7_b0wly"]
+[ext_resource type="Script" uid="uid://cipkvrbgsn2t3" path="res://scripts/Resources/SeedResource.cs" id="7_gfn3f"]
+
+[resource]
+script = ExtResource("7_gfn3f")
+CropToYield = ExtResource("1_kiseq")
+DaysToGrow = 1
+Stages = Array[PackedScene]([ExtResource("3_kiseq"), ExtResource("4_gwq4h"), ExtResource("5_i5wl0"), ExtResource("6_p3pbk"), ExtResource("7_b0wly")])
+Name = "Corn Seed"
+Description = "Grows a Corn plant"
+Cost = 10
+Icon = ExtResource("2_a7v3y")
+metadata/_custom_type_script = "uid://cipkvrbgsn2t3"

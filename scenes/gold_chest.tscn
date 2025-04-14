@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ceskeh4apmwq2" path="res://scripts/Interactable.cs" id="3_pi62n"]
 [ext_resource type="Script" uid="uid://dvu7y6e6spk7q" path="res://scripts/Inventory.cs" id="5_1noaq"]
 [ext_resource type="Resource" uid="uid://c6u2vay75ngpw" path="res://resources/items/seeds/WheatSeed.tres" id="6_gi6q4"]
-[ext_resource type="Resource" uid="uid://l72elbkkbr55" path="res://resources/items/Wheat.tres" id="7_47voh"]
+[ext_resource type="Resource" uid="uid://l72elbkkbr55" path="res://resources/items/plants/Wheat.tres" id="7_47voh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oj5j5"]
 size = Vector3(0.806641, 0.664307, 0.584229)
