@@ -11,6 +11,7 @@ public partial class Player : CharacterBody3D
 
 	private static Player _instance;
 	private Vector3 _targetVelocity = Vector3.Zero;
+	private Vector3 _forward = Vector3.Forward;
 
 	public static Player GetInstance()
 	{
@@ -51,19 +52,19 @@ public partial class Player : CharacterBody3D
 		// In 3D, the XZ plane is the ground plane.
 		if (Input.IsActionPressed("move_right"))
 		{
-			direction.X += 1.0f;
+			direction -= 1.0f * Vector3.Up.Cross(_forward);
 		}
 		if (Input.IsActionPressed("move_left"))
 		{
-			direction.X -= 1.0f;
+			direction += 1.0f * Vector3.Up.Cross(_forward);
 		}
 		if (Input.IsActionPressed("move_back"))
 		{
-			direction.Z += 1.0f;
+			direction -= 1.0f * _forward;
 		}
 		if (Input.IsActionPressed("move_forward"))
 		{
-			direction.Z -= 1.0f;
+			direction += 1.0f * _forward;
 		}
 		
 		if (direction != Vector3.Zero)
@@ -100,5 +101,10 @@ public partial class Player : CharacterBody3D
 	{
 		CurrentItem = item;
 		EmitSignal(SignalName.CurrentItemChanged, item);
+	}
+
+	public void SetForward(Vector3 forward)
+	{
+		_forward = forward;
 	}
 }
