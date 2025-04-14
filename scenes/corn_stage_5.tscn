@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://wsv21snockca"]
+
+[ext_resource type="PackedScene" uid="uid://cbyu5mf1gj6ew" path="res://fbx/Ultimate Nature Pack by Quaternius/Corn_2.fbx" id="1_da546"]
+
+[node name="WheatStage4" type="Node3D"]
+
+[node name="Corn_2" parent="." instance=ExtResource("1_da546")]

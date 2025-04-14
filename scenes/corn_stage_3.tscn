@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwgqmdtad8apd"]
+
+[ext_resource type="PackedScene" uid="uid://bqqlmysji57jj" path="res://fbx/Ultimate Nature Pack by Quaternius/Plant_1.fbx" id="1_4o6a6"]
+[ext_resource type="PackedScene" uid="uid://bc65dyb1txw26" path="res://fbx/Ultimate Nature Pack by Quaternius/Plant_3.fbx" id="2_2qmfb"]
+
+[node name="WheatStage3_tscn" type="Node3D"]
+
+[node name="Plant_1" parent="." instance=ExtResource("1_4o6a6")]
+
+[node name="Plant_3" parent="." instance=ExtResource("2_2qmfb")]
+transform = Transform3D(0.776509, 0, -0.630107, 0, 1, 0, 0.630107, 0, 0.776509, 0, 0.23235, 0)

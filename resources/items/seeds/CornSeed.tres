@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="SeedResource" load_steps=15 format=3 uid="uid://bw5o4ihnw7g67"]
+
+[ext_resource type="Script" uid="uid://cipkvrbgsn2t3" path="res://scripts/Resources/SeedResource.cs" id="1_2cpva"]
+[ext_resource type="Resource" uid="uid://cqead357uamfx" path="res://resources/items/plants/Corn.tres" id="1_06gi0"]
+[ext_resource type="Script" uid="uid://bwuhcsndntfyy" path="res://scripts/Resources/StageResource.cs" id="1_gpo7j"]
+[ext_resource type="PackedScene" uid="uid://bmjix805k3m0n" path="res://scenes/corn_stage_1.tscn" id="2_53fn1"]
+[ext_resource type="Texture2D" uid="uid://bhnammn3k3nd" path="res://img/textures/CornSeedTexture.tres" id="2_aeksg"]
+[ext_resource type="PackedScene" uid="uid://b5o0c1j8464k" path="res://scenes/corn_stage_2.tscn" id="4_aeksg"]
+[ext_resource type="PackedScene" uid="uid://bwgqmdtad8apd" path="res://scenes/corn_stage_3.tscn" id="5_2mss7"]
+[ext_resource type="PackedScene" uid="uid://dgi5n7ypcscae" path="res://scenes/corn_stage_4.tscn" id="6_njnwt"]
+[ext_resource type="PackedScene" uid="uid://wsv21snockca" path="res://scenes/corn_stage_5.tscn" id="7_pqwj1"]
+
+[sub_resource type="Resource" id="Resource_x2tk0"]
+script = ExtResource("1_gpo7j")
+Scene = ExtResource("2_53fn1")
+StepsToAdvance = 1
+metadata/_custom_type_script = "uid://bwuhcsndntfyy"
+
+[sub_resource type="Resource" id="Resource_ntxwq"]
+script = ExtResource("1_gpo7j")
+Scene = ExtResource("4_aeksg")
+StepsToAdvance = 1
+metadata/_custom_type_script = "uid://bwuhcsndntfyy"
+
+[sub_resource type="Resource" id="Resource_oedac"]
+script = ExtResource("1_gpo7j")
+Scene = ExtResource("5_2mss7")
+StepsToAdvance = 1
+metadata/_custom_type_script = "uid://bwuhcsndntfyy"
+
+[sub_resource type="Resource" id="Resource_pr2hu"]
+script = ExtResource("1_gpo7j")
+Scene = ExtResource("6_njnwt")
+StepsToAdvance = 1
+metadata/_custom_type_script = "uid://bwuhcsndntfyy"
+
+[sub_resource type="Resource" id="Resource_tq1sp"]
+script = ExtResource("1_gpo7j")
+Scene = ExtResource("7_pqwj1")
+StepsToAdvance = -1
+metadata/_custom_type_script = "uid://bwuhcsndntfyy"
+
+[resource]
+script = ExtResource("1_2cpva")
+CropToYield = ExtResource("1_06gi0")
+DaysToGrow = 1
+Stages = Array[Object]([SubResource("Resource_x2tk0"), SubResource("Resource_ntxwq"), SubResource("Resource_oedac"), SubResource("Resource_pr2hu"), SubResource("Resource_tq1sp")])
+Name = "Corn Seed"
+Description = "Grows a Corn plant"
+Cost = 10
+Icon = ExtResource("2_aeksg")
+metadata/_custom_type_script = "uid://cipkvrbgsn2t3"

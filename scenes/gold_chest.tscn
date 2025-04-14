@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3338gvhu6oee"]
+[gd_scene load_steps=10 format=3 uid="uid://b3338gvhu6oee"]
 
 [ext_resource type="PackedScene" uid="uid://d3o2rkcrmni8o" path="res://fbx/Chest/Chests/Gold chest.fbx" id="1_oj5j5"]
 [ext_resource type="Script" uid="uid://dav36pcfrrlf" path="res://scripts/Container.cs" id="2_8gyvf"]
 [ext_resource type="Material" uid="uid://cs32lrdkn3ksu" path="res://materials/gold_chest.tres" id="2_pi62n"]
 [ext_resource type="Script" uid="uid://ceskeh4apmwq2" path="res://scripts/Interactable.cs" id="3_pi62n"]
 [ext_resource type="Script" uid="uid://dvu7y6e6spk7q" path="res://scripts/Inventory.cs" id="5_1noaq"]
-[ext_resource type="Resource" uid="uid://c6u2vay75ngpw" path="res://resources/items/seeds/WheatSeed.tres" id="6_gi6q4"]
-[ext_resource type="Resource" uid="uid://l72elbkkbr55" path="res://resources/items/Wheat.tres" id="7_47voh"]
+[ext_resource type="Resource" uid="uid://bai7vsu7d33qs" path="res://resources/items/seeds/WheatSeed.tres" id="6_gi6q4"]
+[ext_resource type="Resource" uid="uid://l72elbkkbr55" path="res://resources/items/plants/Wheat.tres" id="7_47voh"]
+[ext_resource type="Resource" uid="uid://bw5o4ihnw7g67" path="res://resources/items/seeds/CornSeed.tres" id="7_gi6q4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oj5j5"]
 size = Vector3(0.806641, 0.664307, 0.584229)
@@ -40,4 +41,4 @@ script = ExtResource("3_pi62n")
 
 [node name="Inventory" type="Node3D" parent="." index="4"]
 script = ExtResource("5_1noaq")
-Items = [ExtResource("6_gi6q4"), ExtResource("6_gi6q4"), ExtResource("6_gi6q4"), ExtResource("7_47voh"), ExtResource("7_47voh"), ExtResource("7_47voh"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+Items = [ExtResource("7_47voh"), ExtResource("7_47voh"), ExtResource("7_47voh"), ExtResource("7_gi6q4"), ExtResource("6_gi6q4")]
